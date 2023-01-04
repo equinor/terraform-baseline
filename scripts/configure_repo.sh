@@ -23,4 +23,4 @@ gh repo edit "$repo" \
 
 gh api "repos/$repo/branches/$default_branch/protection" \
   --method PUT \
-  --input "../config/gh_branch_protection.json"
+  --input "branch_protection.json"

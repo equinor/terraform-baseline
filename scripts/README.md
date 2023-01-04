@@ -17,17 +17,17 @@ cd scripts/
 Create a GitHub repository for your Terraform module:
 
 ```console
-./create_tf_gh_repo.sh <module_name>
+./create_repo.sh <module_name>
 ```
 
 For example, to create a module named `storage`:
 
 ```console
-./create_tf_gh_repo.sh storage
+./create_repo.sh storage
 ```
 
-Configure the GitHub repository with the recommended settings:
+Configure the repository with the recommended settings:
 
 ```console
-./configure_tf_gh_repo.sh <module_name>
+./configure_repo.sh <module_name>
 ```
