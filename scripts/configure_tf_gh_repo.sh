@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Docs: https://docs.github.com/en/rest/branches/branch-protection
-
 set -eu
 
 module_name=$1
@@ -25,6 +23,4 @@ gh repo edit "$repo" \
 
 gh api "repos/$repo/branches/$default_branch/protection" \
   --method PUT \
-  --input "../config/github_branch_protection.json"
-
-# TODO: Assign accesses.
+  --input "../config/gh_branch_protection.json"

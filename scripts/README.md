@@ -14,20 +14,20 @@ Change to the `scripts` directory:
 cd scripts/
 ```
 
-Create GitHub repository:
+Create a GitHub repository for your Terraform module:
 
 ```console
-./create_github_repo.sh <module_name>
+./create_tf_gh_repo.sh <module_name>
 ```
 
-For example:
+For example, to create a module named `storage`:
 
 ```console
-./create_github_repo.sh storage
+./create_tf_gh_repo.sh storage
 ```
 
-Configure GitHub repository:
+Configure the GitHub repository with the recommended settings:
 
 ```console
-./configure_github_repo.sh <module_name>
+./configure_tf_gh_repo.sh <module_name>
 ```
