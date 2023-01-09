@@ -1,13 +1,5 @@
 {
-  "required_status_checks": {
-    "strict": false,
-    "checks" : [
-      {
-        "context": "Lint PR",
-        "app_id": 15368
-      }
-    ]
-  },
+  "required_status_checks": null,
   "enforce_admins": true,
   "required_pull_request_reviews": {
     "dismissal_restrictions": {},
