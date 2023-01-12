@@ -90,7 +90,7 @@ Before using ETB, you should be familiar with the following pages from the offic
 
     ```terraform
     variable "server_name" {
-      description = "The name of this SQL server".
+      description = "The name of this SQL server."
       type        = string
     }
 
