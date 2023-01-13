@@ -214,3 +214,4 @@ The latest version of the following modules have been created using ETB:
 | Key Vault     | [equinor/terraform-azurerm-key-vault](https://github.com/equinor/terraform-azurerm-key-vault)         |
 | Log Analytics | [equinor/terraform-azurerm-log-analytics](https://github.com/equinor/terraform-azurerm-log-analytics) |
 | Network       | [equinor/terraform-azurerm-network](https://github.com/equinor/terraform-azurerm-network)             |
+| Web App       | [equinor/terraform-azurerm-web-app](https://github.com/equinor/terraform-azurerm-web-app)             |
