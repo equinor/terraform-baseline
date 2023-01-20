@@ -203,6 +203,8 @@ Before using ETB, you should be familiar with the following pages from the offic
 
 - The `prevent_destroy` [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle) should be used sparingly. A [`CanNotDelete` lock](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) should be used instead.
 
+- The repository should be added as a project in [this](https://app.snyk.io/org/cyclops-qou) Snyk organization.
+
 ## Module Library
 
 The latest version of the following modules have been created using ETB:
