@@ -212,6 +212,7 @@ The latest version of the following modules have been created using ETB:
 | Name          | Repository                                                                                            |
 | ------------- | ----------------------------------------------------------------------------------------------------- |
 | ACR           | [equinor/terraform-azurerm-acr](https://github.com/equinor/terraform-azurerm-acr)                     |
+| App Insights  | [equinor/terraform-azurerm-acr](https://github.com/equinor/terraform-azurerm-app-insights)            |
 | Databricks    | [equinor/terraform-azurerm-databricks](https://github.com/equinor/terraform-azurerm-databricks)       |
 | Key Vault     | [equinor/terraform-azurerm-key-vault](https://github.com/equinor/terraform-azurerm-key-vault)         |
 | Log Analytics | [equinor/terraform-azurerm-log-analytics](https://github.com/equinor/terraform-azurerm-log-analytics) |
