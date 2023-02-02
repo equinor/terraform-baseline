@@ -209,14 +209,15 @@ Before using ETB, you should be familiar with the following pages from the offic
 
 The latest version of the following modules have been created using ETB:
 
-| Name          | Repository                                                                                            |
-| ------------- | ----------------------------------------------------------------------------------------------------- |
-| ACR           | [equinor/terraform-azurerm-acr](https://github.com/equinor/terraform-azurerm-acr)                     |
-| App Insights  | [equinor/terraform-azurerm-app-insights](https://github.com/equinor/terraform-azurerm-app-insights)   |
-| Databricks    | [equinor/terraform-azurerm-databricks](https://github.com/equinor/terraform-azurerm-databricks)       |
-| Key Vault     | [equinor/terraform-azurerm-key-vault](https://github.com/equinor/terraform-azurerm-key-vault)         |
-| Log Analytics | [equinor/terraform-azurerm-log-analytics](https://github.com/equinor/terraform-azurerm-log-analytics) |
-| Network       | [equinor/terraform-azurerm-network](https://github.com/equinor/terraform-azurerm-network)             |
-| SQL           | [equinor/terraform-azurerm-sql](https://github.com/equinor/terraform-azurerm-sql)                     |
-| Storage       | [equinor/terraform-azurerm-storage](https://github.com/equinor/terraform-azurerm-storage)             |
-| Web App       | [equinor/terraform-azurerm-web-app](https://github.com/equinor/terraform-azurerm-web-app)             |
+| Name          | Repository                                                                                            | Latest release                                                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ACR           | [equinor/terraform-azurerm-acr](https://github.com/equinor/terraform-azurerm-acr)                     | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-acr?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-acr)                     |
+| App Insights  | [equinor/terraform-azurerm-app-insights](https://github.com/equinor/terraform-azurerm-app-insights)   | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-app-insights?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-app-insights)   |
+| Databricks    | [equinor/terraform-azurerm-databricks](https://github.com/equinor/terraform-azurerm-databricks)       | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-databricks?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-databricks)       |
+| Grafana       | [equinor/terraform-azurerm-grafana](https://github.com/equinor/terraform-azurerm-grafana)             | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-grafana?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-grafana)             |
+| Key Vault     | [equinor/terraform-azurerm-key-vault](https://github.com/equinor/terraform-azurerm-key-vault)         | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-key-vault?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-key-vault)         |
+| Log Analytics | [equinor/terraform-azurerm-log-analytics](https://github.com/equinor/terraform-azurerm-log-analytics) | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-log-analytics?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-log-analytics) |
+| Network       | [equinor/terraform-azurerm-network](https://github.com/equinor/terraform-azurerm-network)             | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-network?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-network)             |
+| SQL           | [equinor/terraform-azurerm-sql](https://github.com/equinor/terraform-azurerm-sql)                     | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-sql?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-sql)                     |
+| Storage       | [equinor/terraform-azurerm-storage](https://github.com/equinor/terraform-azurerm-storage)             | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-storage?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-storage)             |
+| Web App       | [equinor/terraform-azurerm-web-app](https://github.com/equinor/terraform-azurerm-web-app)             | [![Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-web-app?display_name=tag&sort=semver)](https://github.com/equinor/terraform-azurerm-web-app)             |
