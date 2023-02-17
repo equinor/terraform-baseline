@@ -29,6 +29,8 @@ Before using ETB, you should be familiar with the following pages from the offic
 
    Example secure value: `min_tls_version` set to `1.2` instead of `1.0` for `storage` module.
 
+- Variables should use the same value type and default value as the relevant argument.
+
 - Required variables (variables without default values) should be placed first in `variables.tf`.
 
 - Variables and outputs should follow a common naming convention `<resource>_<block>_<argument>`, where `<resource>` and/or `<block>` can be omitted if not applicable.
