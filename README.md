@@ -201,7 +201,7 @@ Before using ETB, you should be familiar with the following pages from the offic
     1. Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
     1. Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
 
-- The `prevent_destroy` [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle) should be used sparingly. A [`CanNotDelete` lock](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) should be used instead.
+- Use the `prevent_destroy` [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle) to prevent accidental destruction of stateful resources such as databases and storage accounts. Use in combination with a [`CanNotDelete` lock](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) to further protect the resource.
 
 - The repository should be added as a project in [this](https://app.snyk.io/org/cyclops-qou) Snyk organization.
 
