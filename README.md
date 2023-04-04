@@ -23,6 +23,10 @@ Before using ETB, you should be familiar with the following pages from the offic
 - Use resources that do not require more than `Contributor` role at the resource group scope.
   If you need to use a higher role, create an example instead.
 
+- Don't create resources that are automatically created by Azure, e.g. hidden resources such as the `master` database for an Azure SQL server:
+
+  ![hidden resources](img/hidden-resources.png)
+
 - All arguments should be made available as variables with sensible default values to make the module as generic as possible. Default values should be the most generic and secure values possible.
 
    Example generic value: `account_kind` set to `StorageV2` instead of  `BlobStorage` for `storage` module.
