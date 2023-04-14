@@ -17,41 +17,53 @@ Before using ETB, you should be familiar with the following pages from the offic
 
 - Use [this template](https://github.com/equinor/terraform-module-template) when creating your repository.
 
+### Naming convention
+
 - Use the common naming convention `terraform-azurerm-<name>` when naming your repository.
   For example, if you want to create a module named `storage`, the repository should be named `terraform-azurerm-storage`.
 
+### Roles and scope
+
 - Use resources that do not require more than `Contributor` role at the resource group scope.
   If you need to use a higher role, create an example instead.
+
+### Hidden resources
 
 - Don't create resources that are automatically created by Azure, e.g. hidden resources such as the `master` database for an Azure SQL server:
 
   ![hidden resources](img/hidden-resources.png)
 
-- There should be a one-to-one mapping between module calls and visible resources in Azure.
+### One-on-one mapping
 
-  For example, consider the following module calls:
+There should be a one-to-one mapping between module calls and visible resources in Azure.
 
-  | Module name | Module source | Created Azure resources |
-  | --- | --- | --- |
-  | log-analytics | `equinor/log-analytics/azurerm` | Log Analytics workspace + extension resources (diagnostic setting)
-  | automation | `equinor/automation/azurerm` | Automation account + child resources (schedules, modules, credentials, connections, certificates, variables) and extension resources (diagnostic setting) |
-  | runbook | `equinor/automation/azurerm//modules/runbook` | Automation runbook + child resources (job schedules) |
+- For example, consider the following module calls:
 
-  Each module call corresponds to a single visible resource in the Azure portal:
+  | Module name   | Module source                                 | Created Azure resources                                                                                                                                   |
+  | ------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | log-analytics | `equinor/log-analytics/azurerm`               | Log Analytics workspace + extension resources (diagnostic setting)                                                                                        |
+  | automation    | `equinor/automation/azurerm`                  | Automation account + child resources (schedules, modules, credentials, connections, certificates, variables) and extension resources (diagnostic setting) |
+  | runbook       | `equinor/automation/azurerm//modules/runbook` | Automation runbook + child resources (job schedules)                                                                                                      |
+
+- Each module call corresponds to a single visible resource in the Azure portal:
 
   ![module to resource mapping](img/module-to-resource-mapping.png)
 
+### Variables
+
 - All arguments should be made available as variables with sensible default values to make the module as generic as possible. Default values should be the most generic and secure values possible.
 
-   Example generic value: `account_kind` set to `StorageV2` instead of  `BlobStorage` for `storage` module.
-
-   Example secure value: `min_tls_version` set to `1.2` instead of `1.0` for `storage` module.
+   > **Example generic value:** `account_kind` set to `StorageV2` instead of  `BlobStorage` for `storage` module.
+   >
+   > **Example secure value:** `min_tls_version` set to `1.2` instead of `1.0` for `storage` module.
 
 - Required variables (variables without default values) should be placed first in `variables.tf`.
 
-- Variables and outputs should follow a common naming convention `<resource>_<block>_<argument>`, where `<resource>` and/or `<block>` can be omitted if not applicable.
+#### Variable naming convention
 
-  Use `description` to explain the use case of variables and outputs.
+Variables and outputs should follow a common naming convention `<resource>_<block>_<argument>`, where `<resource>` and/or `<block>` can be omitted if not applicable.
+
+- Use `description` to explain the use case of variables and outputs.
 
   ```terraform
   variable "vault_name" {
@@ -87,11 +99,15 @@ Before using ETB, you should be familiar with the following pages from the offic
   }
   ```
 
-  Known exceptions to this rule:
+  > **Known exceptions to this rule:**
+  >
+  > - Variable names that contain the module name. For example, in module `storage` the variable `storage_account_name` should be named `account_name` instead.
 
-  1. Variable names that contain the module name. For example, in module `storage` the variable `storage_account_name` should be named `account_name` instead.
+### Modules
 
 - A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single database. This creates a common expectation for the behavior of our modules.
+
+#### Control plane and data plane
 
 - A module should only perform control plane operations (e.g., managing Storage account or Key vault), not data plane operations (e.g., managing Storage container or Key vault secret). See [control plane and data plane](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane) in Microsoft docs.
 
@@ -102,7 +118,13 @@ Before using ETB, you should be familiar with the following pages from the offic
 
   > **Note** Might be irrelevant depending on the implementation of github/roadmap#614.
 
+### Automated tests
+
 - Automated tests should be implemented for all variants of the relevant resource using [Terratest](https://terratest.gruntwork.io/). For example, in the `storage` module, automated tests should be implemented for standard GPv2 storage, premium GPv2 storage, standard blob storage, premium block blob storage and premium file storage.
+
+### Resources
+
+#### Repeatable resources
 
 - For repeatable resources that extend the main resource, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
 
@@ -145,6 +167,8 @@ Before using ETB, you should be familiar with the following pages from the offic
     }
     ```
 
+#### Repeatable nested blocks
+
 - For repeatable nested blocks, use a variable of type `list(object())` to dynamically create the nested blocks, where setting the value to `[]` will not create any nested blocks:
 
     ```terraform
@@ -177,9 +201,11 @@ Before using ETB, you should be familiar with the following pages from the offic
     }
     ```
 
+#### Non-repeatable nested blocks
+
 - For non-repeatable nested blocks, use a variable of type `object()` to dynamically create the nested block, where setting the value to `null` will not create the nested block.
 
-    This is important because the nested block may not be supported in certain scenarios. For example, `blob_properties` for `azurerm_storage_account` is only supported if `account_kind` is set to `StorageV2` or `BlobStorage`.
+  **Note:** This is important because the nested block may not be supported in certain scenarios. For example, `blob_properties` for `azurerm_storage_account` is only supported if `account_kind` is set to `StorageV2` or `BlobStorage`.
 
     ```terraform
     variable "account_kind" {
@@ -214,10 +240,12 @@ Before using ETB, you should be familiar with the following pages from the offic
     }
     ```
 
-    Known exceptions to this rule would be:
+    > Known exceptions to this rule would be:
+    >
+    > - Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
+    > - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
 
-    1. Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
-    1. Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
+### Lifecycle meta-argument
 
 - The `prevent_destroy` [lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle) should be used sparingly. A [`CanNotDelete` lock](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) should be used instead.
 
