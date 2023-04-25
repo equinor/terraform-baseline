@@ -1,4 +1,4 @@
-# Equinor Terraform Baseline
+# Introduction
 
 Equinor Terraform Baseline (ETB) is:
 
