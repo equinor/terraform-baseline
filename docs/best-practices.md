@@ -20,11 +20,11 @@
 
     For example, consider the following module calls:
 
-  | Module name   | Module source                                 | Created Azure resources                                                                                                                                   |
-  | ------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-  | log-analytics | `equinor/log-analytics/azurerm`               | Log Analytics workspace + extension resources (diagnostic setting)                                                                                        |
-  | automation    | `equinor/automation/azurerm`                  | Automation account + child resources (schedules, modules, credentials, connections, certificates, variables) and extension resources (diagnostic setting) |
-  | runbook       | `equinor/automation/azurerm//modules/runbook` | Automation runbook + child resources (job schedules)                                                                                                      |
+    | Module name   | Module source | Created Azure resources |
+    | --- | --- | --- |
+    | log-analytics | `equinor/log-analytics/azurerm` | Log Analytics workspace + extension resources (diagnostic setting) |
+    | automation | `equinor/automation/azurerm` | Automation account + child resources (schedules, modules, credentials, connections, certificates, variables) and extension resources (diagnostic setting) |
+    | runbook | `equinor/automation/azurerm//modules/runbook` | Automation runbook + child resources (job schedules) |
 
     Each module call corresponds to a single visible resource in the Azure portal:
 
