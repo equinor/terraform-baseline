@@ -8,8 +8,25 @@ on:
       - mkdocs.yml
 
 jobs:
-  deploy:
-    uses: equinor/ops-actions/.github/workflows/mkdocs-gh-pages.yml@main
-    with:
-      mkdocs_version: ">=1.0.0"
-      python_version: "3.x"
+  mkdocs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Deploy MkDocs
+        run: mkdocs gh-deploy --force
