@@ -28,5 +28,11 @@ nav:
       - index.md
   - Best Practices:
       - best-practices/index.md
+      - best-practices/repository.md
+      - best-practices/resources.md
+      - best-practices/variables.md
+      - best-practices/repeatable-resources.md
+      - best-practices/testing.md
+      - best-practices/other.md
   - Module Library:
       - module-library/index.md
