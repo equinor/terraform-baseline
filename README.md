@@ -17,6 +17,19 @@ Before using ETB, you should be familiar with the following pages from the offic
 
 - Use [this template](https://github.com/equinor/terraform-module-template) when creating your repository.
 
+- The following accesses should be configured for the repository:
+
+  | Team | Role |
+  | --- | --- |
+  | @equinor/terraform-baseline | `Write` |
+  | @equinor/terraform-baseline-admins | `Admin` |
+
+- The following code owners should be configured in a file `.github/CODEOWNERS`:
+
+  ```raw
+  * @equinor/terraform-baseline
+  ```
+
 ### Naming convention
 
 - Use the common naming convention `terraform-azurerm-<name>` when naming your repository.
