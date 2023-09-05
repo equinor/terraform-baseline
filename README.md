@@ -39,10 +39,30 @@ Before using the baseline, you should be familiar with the following pages from 
 - All arguments should be made available as variables with sensible default values to make the module as generic as possible.
 
 - Variables and outputs should follow a common naming convention `<resource>_<block>_<argument>`, where `<resource>` and/or `<block>` can be omitted if not applicable.
-  Use `description` to explain the use case of variables and outputs.
+  Use the `description` argument to document the use case of variables and outputs.
 
-  > **Note**
-  > Variable names that contain the module name. For example, in module `storage` the variable `storage_account_name` should be named `account_name` instead.
+  For example, in module `storage`:
+
+  ```terraform
+  variable "account_name" {
+    description = "The name of this Storage account."
+    type        = string
+  }
+
+  variable "diagnostic_setting_name" {
+    description = "The name of the diagnostic setting to create for this Storage account."
+    type        = string
+    default     = "audit-logs"
+  }
+
+  resource "azurerm_storage_account" "this" {
+    name = var.account_name
+  }
+
+  resource "azurerm_monitor_diagnostic_setting" "this" {
+    name = var.diagnostic_setting_name
+  }
+  ```
 
 - A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single Azure Web App, and the `sql` module should create a single Azure SQL server. This creates a common expectation for the behavior of our modules.
 
