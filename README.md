@@ -49,19 +49,19 @@ Before using the baseline, you should be familiar with the following pages from 
     type        = string
   }
 
-  variable "diagnostic_setting_name" {
-    description = "The name of the diagnostic setting to create for this Storage account."
-    type        = string
-    default     = "audit-logs"
+  variable "advanced_threat_protection_enabled" {
+    description = "Should advanced threat protection be enabled for this Storage account?"
+    type        = bool
+    default     = true
   }
 
   resource "azurerm_storage_account" "this" {
     name = var.account_name
   }
 
-  resource "azurerm_monitor_diagnostic_setting" "this" {
-    name               = var.diagnostic_setting_name
-    target_resource_id = azurerm_storage_account.this.id
+  resource "azurerm_advanced_threat_protection" "this" {
+    enabled            = var.advanced_threat_protection_enabled
+    target_resource_id = azurerm_storage_account.this.name
   }
   ```
 
