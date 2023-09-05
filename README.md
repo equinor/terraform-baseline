@@ -60,7 +60,8 @@ Before using the baseline, you should be familiar with the following pages from 
   }
 
   resource "azurerm_monitor_diagnostic_setting" "this" {
-    name = var.diagnostic_setting_name
+    name               = var.diagnostic_setting_name
+    target_resource_id = azurerm_storage_account.this.id
   }
   ```
 
