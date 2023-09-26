@@ -137,6 +137,8 @@ Variables and outputs should follow a common naming convention `<resource>_<bloc
 
 ### Resources
 
+- By default, configure resources based on Microsoft security recommendations, e.g. [Security recommendations for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations).
+
 #### Repeatable resources
 
 - For repeatable resources that extend the main resource, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
