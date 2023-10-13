@@ -53,7 +53,7 @@ Equinor Terraform Baseline (ETB) is...
     }
     ```
 
-1. Get the resource group using a data source:
+1. Read the resource group you created into Terraform by using a data source:
 
     ```terraform
     data "azurerm_resource_group" "example" {
@@ -61,7 +61,7 @@ Equinor Terraform Baseline (ETB) is...
     }
     ```
 
-1. Create a storage account:
+1. Create a storage account in the resource group:
 
     ```terraform
     # Create a random ID suffix for resource names using the built-in random provider
