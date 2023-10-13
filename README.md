@@ -1,13 +1,6 @@
 # Equinor Terraform Baseline
 
-Equinor Terraform Baseline (ETB) is...
-
-## Prerequisites
-
-- Install [Terraform](https://developer.hashicorp.com/terraform/downloads)
-- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) - for authenticating to Azure
-- If you're using VS Code, install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform)
-- Basic Azure knowledge (familiar with subscriptions, resource groups and resources)
+Equinor Terraform Baseline (ETB) is a collection of tutorials on how to get started with Terraform in Equinor.
 
 ## Why Terraform?
 
@@ -39,7 +32,14 @@ Write very short about Terraform, pros cons etc.
 
 ## Get started with Terraform
 
-### Create resources
+### Prerequisites
+
+- Install [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) - for authenticating to Azure
+- If you're using VS Code, install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform)
+- Basic Azure knowledge (familiar with subscriptions, resource groups and resources)
+
+### Create Azure resource group
 
 1. Login to Azure:
 
@@ -58,6 +58,8 @@ Write very short about Terraform, pros cons etc.
     ```console
     az group create -n example-rg -l northeurope
     ```
+
+### Create resources
 
 1. Create a file `main.tf`.
 
@@ -368,6 +370,9 @@ Write very short about Terraform, pros cons etc.
     ```
 
     </details>
+
+    Note how the plan wants to destroy the previously created resources.
+    This is because those resources no longer exist in your code.
 
 ## Summary
 
