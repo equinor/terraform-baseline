@@ -126,8 +126,7 @@ Write very short about Terraform, pros cons etc.
     <details><summary>Show execution plan</summary>
 
     ```terraform
-    data.azurerm_resource_group.example: Reading...
-    data.azurerm_resource_group.example: Read complete after 0s [id=/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/example-rg]
+    $ terraform show tfplan
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
       + create
@@ -203,13 +202,6 @@ Write very short about Terraform, pros cons etc.
         }
 
     Plan: 2 to add, 0 to change, 0 to destroy.
-
-    ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Saved the plan to: tfplan
-
-    To perform exactly these actions, run the following command to apply:
-        terraform apply "tfplan"
     ```
 
     </details>
@@ -261,8 +253,7 @@ Write very short about Terraform, pros cons etc.
     <details><summary>Show execution plan</summary>
 
     ```terraform
-    random_id.suffix: Refreshing state... [id=1k8pWg]
-    azurerm_storage_account.example: Refreshing state... [id=/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/example-rg/providers/Microsoft.Storage/storageAccounts/examplestd64f295a]
+    $ terraform show tfplan
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
       - destroy
@@ -370,13 +361,6 @@ Write very short about Terraform, pros cons etc.
         }
 
     Plan: 0 to add, 0 to change, 2 to destroy.
-
-    ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Saved the plan to: tfplan
-
-    To perform exactly these actions, run the following command to apply:
-        terraform apply "tfplan"
     ```
 
     </details>
