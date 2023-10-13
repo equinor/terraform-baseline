@@ -71,7 +71,7 @@ Write very short about Terraform, pros cons etc.
     }
     ```
 
-1. Read the resource group you created into Terraform by using a data source:
+1. Read the Azure resource group you created into Terraform by using a data source:
 
     ```terraform
     data "azurerm_resource_group" "example" {
@@ -79,10 +79,9 @@ Write very short about Terraform, pros cons etc.
     }
     ```
 
-1. Create a storage account in the resource group:
+1. Create a random suffix for resource names, and an Azure Storage account in the resource group:
 
     ```terraform
-    # Create a unique suffix for resource names using the built-in random provider
     resource "random_id" "suffix" {
       byte_length = 4
     }
@@ -108,8 +107,12 @@ Write very short about Terraform, pros cons etc.
 
     Two files will be automatically created:
 
-    1. `.terraform`: a directory containing installed provider plugins.
-    1. `.terraform.lock.hcl`: a file that contains a record of installed provider plugins.
+    | Name | Description |
+    | --- | --- |
+    | `.terraform` | A directory containing installed provider plugins. |
+    | `.terraform.lock.hcl` | A file containing a record of installed provider plugins. |
+
+    These files are automatically managed by Terraform and should not be manually modified.
 
     Feel free to have a quick look at these files, though this is completely optional.
 

@@ -6,7 +6,6 @@ data "azurerm_resource_group" "example" {
   name = "example-rg"
 }
 
-# Create a random ID suffix for resource names using the built-in random provider
 resource "random_id" "suffix" {
   byte_length = 4
 }
