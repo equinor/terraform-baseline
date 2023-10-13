@@ -223,3 +223,7 @@ Write very short about Terraform, pros cons etc.
     ```console
     terraform apply tfplan
     ```
+
+## What next?
+
+- [Create reusable modules](docs/reusable-modules.md)
