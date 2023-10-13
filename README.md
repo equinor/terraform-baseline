@@ -80,7 +80,7 @@ Write very short about Terraform, pros cons etc.
     ```terraform
     # Create a unique suffix for resource names using the built-in random provider
     resource "random_id" "suffix" {
-      byte_length = 8
+      byte_length = 4
     }
 
     resource "azurerm_storage_account" "example" {
@@ -229,6 +229,10 @@ Write very short about Terraform, pros cons etc.
     ```console
     terraform apply tfplan
     ```
+
+    A single file will be automatically created:
+
+    - `terraform.tfstate`: ???
 
 ## What next?
 
