@@ -46,3 +46,4 @@ terraform.rc
 /main.tf
 /.terraform
 /.terraform.lock.hcl
+/tfplan
