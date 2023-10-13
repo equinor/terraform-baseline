@@ -41,3 +41,8 @@ terraform.rc
 
 # Ignore Security Certificate files
 *.crt
+
+# Ignore files in root of repo that will most likely be created during the "Get started with Terraform" section
+/main.tf
+/.terraform
+/.terraform.lock.hcl

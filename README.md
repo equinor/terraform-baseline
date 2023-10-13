@@ -100,6 +100,15 @@ Write very short about Terraform, pros cons etc.
     terraform init
     ```
 
+    This will install all required provider plugins.
+
+    Two files will be automatically created:
+
+    1. `.terraform`: a directory containing installed provider plugins.
+    1. `.terraform.lock.hcl`: a file that contains a record of installed provider plugins.
+
+    Feel free to have a quick look at these files, though this is completely optional.
+
 1. Validate your Terraform configuration to check for errors such as non-existent references:
 
     ```console
