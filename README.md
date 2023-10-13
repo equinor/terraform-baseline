@@ -78,7 +78,7 @@ Write very short about Terraform, pros cons etc.
 1. Create a storage account in the resource group:
 
     ```terraform
-    # Create a random ID suffix for resource names using the built-in random provider
+    # Create a unique suffix for resource names using the built-in random provider
     resource "random_id" "suffix" {
       byte_length = 8
     }
@@ -217,6 +217,12 @@ Write very short about Terraform, pros cons etc.
     A single file will be automatically created:
 
     1. `tfplan`: contains the created execution plan.
+
+    If you ever need to review the execution plan again:
+
+    ```console
+    terraform show tfplan
+    ```
 
 1. Apply the changes presented by the Terraform plan.
 
