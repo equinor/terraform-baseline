@@ -2,9 +2,9 @@
 
 ## Install tools
 
-- Install [Terraform](https://developer.hashicorp.com/terraform/downloads)
-- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) - for authenticating to Azure
-- If you're using VS Code, install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform)
+- Install [Terraform](https://developer.hashicorp.com/terraform/downloads){target=_blank}
+- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli){target=_blank} - for authenticating to Azure
+- If you're using VS Code, install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform){target=_blank}
 
 ## Create resource group in Azure
 

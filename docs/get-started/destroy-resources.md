@@ -1,4 +1,4 @@
-## Destroy resources
+# Destroy resources
 
 1. Remove all data sources and resources from your code, so that only the provider configuration remains:
 
