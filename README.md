@@ -39,6 +39,8 @@ Write very short about Terraform, pros cons etc.
 
 ## Get started with Terraform
 
+### Create resources
+
 1. Login to Azure:
 
     ```console
@@ -229,6 +231,8 @@ Write very short about Terraform, pros cons etc.
     Feel free to have a quick look at the state file.
     Notice how the state file keeps track of the configuration of all read data sources and created resources.
     You should never modify the state file manually; all changes should go through Terraform.
+
+### Destroy resources
 
 1. Remove all data sources and resources from your code, so that only the provider configuration remains:
 
