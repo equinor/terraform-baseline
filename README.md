@@ -23,6 +23,8 @@ Equinor Terraform Baseline (ETB) is...
 
 - Baseline modules example usage?
 
+- Add license
+
 ## Get started with Terraform
 
 1. Login to Azure:

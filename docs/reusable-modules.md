@@ -1,5 +1,10 @@
 # Equinor Terraform Baseline
 
+> **Note**
+>
+> This document was previously used as the main README for this repository.
+> It has temporarily been moved into this docs folder, however it should be rewritten to build off of the new README.
+
 Equinor Terraform Baseline (ETB) is:
 
 - A set of best practices for creating reusable Terraform modules using the Azure provider.
