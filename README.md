@@ -125,7 +125,7 @@ Write very short about Terraform, pros cons etc.
 
     <details><summary>Show execution plan</summary>
 
-    ```terraform
+    ```console
     $ terraform show tfplan
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -252,7 +252,7 @@ Write very short about Terraform, pros cons etc.
 
     <details><summary>Show execution plan</summary>
 
-    ```terraform
+    ```console
     $ terraform show tfplan
 
     Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
