@@ -1,0 +1,32 @@
+site_name: Equinor Terraform Baseline
+
+theme:
+  name: material
+  # icon:
+  #   logo: fontawesome/solid/book
+  features:
+  - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
+  - navigation.tabs # Enables navigational tabs at top of page.
+  - navigation.indexes # Enables use of "index.md" pages.
+  - navigation.top # Enables "back-to-top" button.
+  - navigation.footer # Enables "previous" and "next" navigation buttons in footer
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.highlight # Enable syntax highlighting of code blocks.
+  - pymdownx.superfences # Enable arbitrary nesting of code and content blocks inside each other.
+  - attr_list # Open links in new tabs by using syntax [<text>](<url>){target=_blank}.
+
+nav:
+  - Home:
+    - home.md
+  - Get started:
+    - get-started/index.md
+    - get-started/prereqs.md
+    - get-started/create-resources.md
+    - get-started/update-resources.md
+    - get-started/destroy-resources.md
+    - get-started/summary.md
+  # - Reusable modules:
+  #   - reusable-modules.md
