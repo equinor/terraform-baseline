@@ -25,7 +25,10 @@ Using the Azure CLI, create a resource group in Azure to contain the resources c
 1. Create a resource group:
 
     ```console
-    az group create -n example-rg -l northeurope
+    $ az group create -n example-rg -l northeurope -o table
+    Location     Name
+    -----------  ----------
+    northeurope  example-rg
     ```
 
 Now we're ready to start creating resources!
