@@ -46,7 +46,7 @@ markdown_extensions:
 
 nav:
   - Home:
-    - home.md
+    - index.md
   - Get started:
     - get-started/index.md
     - get-started/prerequisites.md
