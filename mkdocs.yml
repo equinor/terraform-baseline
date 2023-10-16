@@ -50,6 +50,7 @@ nav:
   - Get started:
     - get-started/index.md
     - get-started/prerequisites.md
+    - get-started/syntax.md
     - get-started/create-resources.md
     - get-started/update-resources.md
     - get-started/destroy-resources.md

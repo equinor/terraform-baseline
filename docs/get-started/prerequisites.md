@@ -31,4 +31,4 @@ Using the Azure CLI, create a resource group in Azure to contain the resources c
     northeurope  example-rg
     ```
 
-Now we're ready to start creating resources!
+Now we're ready to start learning about Terraform, starting with the basic syntax.
