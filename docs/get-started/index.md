@@ -1,7 +1,5 @@
-# Overview
+# Get started
 
-1. Install tools.
-1. Create a resource group in Azure.
-1. Create an Azure Storage account in the resource group.
-1. Update the configuration of the Storage account.
-1. Destroy the Storage account.
+The goal of this section is to get you up and running with Terraform in X time.
+
+It'll cover the basics for everything between installing the required tools, and managing the full lifecycle of a resource in Azure.
