@@ -1,0 +1,59 @@
+site_name: Equinor Terraform Baseline
+
+repo_name: equinor/terraform-baseline
+repo_url: https://github.com/equinor/terraform-baseline
+
+theme:
+  name: material
+  icon:
+    logo: fontawesome/solid/cube # Set icon to cube to represent the baseline as a "building block"
+    repo: fontawesome/brands/github
+  features:
+  - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
+  - navigation.tabs # Enables navigational tabs at top of page.
+  - navigation.indexes # Enables use of "index.md" pages.
+  - navigation.top # Enables "back-to-top" button.
+  - navigation.footer # Enables "previous" and "next" navigation buttons in footer
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.highlight # Enable syntax highlighting of code blocks.
+  - pymdownx.superfences # Enable arbitrary nesting of code and content blocks inside each other.
+  - attr_list # Open links in new tabs by using syntax [<text>](<url>){target=_blank}.
+
+nav:
+  - Home:
+    - home.md
+  - Get started:
+    - get-started/index.md
+    - get-started/prerequisites.md
+    - get-started/syntax.md
+    - get-started/create-resources.md
+    - get-started/update-resources.md
+    - get-started/destroy-resources.md
+    - get-started/summary.md
+  - Reusable modules:
+    - reusable-modules.md
