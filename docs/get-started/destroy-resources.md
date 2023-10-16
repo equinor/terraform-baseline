@@ -29,7 +29,7 @@
       - resource "azurerm_storage_account" "example" {
           - access_tier                       = "Hot" -> null
           - account_kind                      = "StorageV2" -> null
-          - account_replication_type          = "LRS" -> null
+          - account_replication_type          = "GRS" -> null
           - account_tier                      = "Standard" -> null
           - allow_nested_items_to_be_public   = true -> null
           - cross_tenant_replication_enabled  = true -> null
@@ -131,9 +131,20 @@
 
     Note how the plan wants to destroy the previously created resources.
     This is because those resources no longer exist in your code.
+    If resources have been removed from your code, they should also be removed from Azure.
 
 1. Run the execution plan:
 
     ```console
     terraform apply tfplan
     ```
+
+1. Verify that the resource group is empty again:
+
+    ```console
+    az resource list -g example-rg -o table
+    ```
+
+    If nothing is returned, then the resource group is empty, meaning that the Storage account has been destroyed.
+
+Congrats, you've managed the full lifecycle of an Azure Storage account using Terraform!
