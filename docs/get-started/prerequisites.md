@@ -3,12 +3,12 @@
 ## Install tools
 
 - Install [Terraform](https://developer.hashicorp.com/terraform/downloads){target=_blank}
-- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli){target=_blank} - for authenticating to Azure
+- Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli){target=_blank}
 - If you're using VS Code, install the [Terraform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=hashicorp.terraform){target=_blank}
 
 ## Create resource group in Azure
 
-Before we can start creating Azure resources using Terraform, we'll create a resource group to contain the resources using the Azure CLI:
+Using the Azure CLI, create a resource group in Azure to contain the resources created during this tutorial:
 
 1. Login to Azure:
 
@@ -28,6 +28,4 @@ Before we can start creating Azure resources using Terraform, we'll create a res
     az group create -n example-rg -l northeurope
     ```
 
-Note that we **could** have created the resource group using Terraform, however resource groups are often provisioned by Subscription Owners.
-
-If someone else has to create this resource group for you, ensure that you are assigned role `Contributor` at the resource group scope.
+Now we're ready to start creating resources!
