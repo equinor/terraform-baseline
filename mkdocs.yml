@@ -1,9 +1,13 @@
 site_name: Equinor Terraform Baseline
 
+repo_name: equinor/terraform-baseline
+repo_url: https://github.com/equinor/terraform-baseline
+
 theme:
   name: material
-  # icon:
-  #   logo: fontawesome/solid/book
+  icon:
+    logo: fontawesome/solid/cube
+    repo: fontawesome/brands/github
   features:
   - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
   - navigation.tabs # Enables navigational tabs at top of page.
