@@ -6,7 +6,7 @@ repo_url: https://github.com/equinor/terraform-baseline
 theme:
   name: material
   icon:
-    logo: fontawesome/solid/cube
+    logo: fontawesome/solid/cube # Set icon to cube to represent the baseline as a "building block"
     repo: fontawesome/brands/github
   features:
   - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
