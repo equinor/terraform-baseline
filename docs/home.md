@@ -1,3 +1,3 @@
 # Home
 
-TODO
+TODO: add landing page
