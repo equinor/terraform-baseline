@@ -1,5 +1,7 @@
 # Create resources
 
+Let's create an Azure Storage account using Terraform:
+
 1. Create a file `main.tf`.
 
 1. Configure the Azure provider:
@@ -34,9 +36,10 @@
     }
     ```
 
-    <details><summary>Full main.tf</summary>
+    <details><summary>Show `main.tf` contents</summary>
 
-    ```terraform
+    ```console
+    $ cat main.tf
     provider "azurerm" {
       features {}
     }
@@ -60,24 +63,18 @@
 
     </details>
 
-1. Initialize your Terraform configuration.
+1. Initialize your Terraform configuration to install all required provider plugins:
 
     ```console
     terraform init
     ```
 
-    This will install all required provider plugins.
-
     Two files will be automatically created:
 
     | Name | Description |
     | --- | --- |
-    | `.terraform` | A directory containing installed provider plugins. |
-    | `.terraform.lock.hcl` | A file containing a record of installed provider plugins. |
-
-    These files are automatically managed by Terraform and should not be manually modified.
-
-    Feel free to have a quick look at these files, though this is completely optional.
+    | `.terraform` | A directory containing installed provider plugins |
+    | `.terraform.lock.hcl` | A file containing a record of installed provider plugins |
 
 1. Validate your Terraform configuration to check for errors such as non-existent references:
 
@@ -85,13 +82,17 @@
     terraform validate
     ```
 
-1. create a Terraform plan and store it in a file `tfplan`:
+1. Generate an execution plan and store it in a file `tfplan`:
 
     ```console
     terraform plan -out=tfplan
     ```
 
-    Something...
+    A single file will be automatically created:
+
+    | Name | Description |
+    | --- | --- |
+    | `tfplan` | A file containing the generated execution plan |
 
     <details><summary>Show execution plan</summary>
 
@@ -176,17 +177,7 @@
 
     </details>
 
-    A single file will be automatically created:
-
-    1. `tfplan`: contains the created execution plan.
-
-    If you ever need to review the execution plan again:
-
-    ```console
-    terraform show tfplan
-    ```
-
-1. Apply the changes presented by the Terraform plan.
+1. Run the execution:
 
     ```console
     terraform apply tfplan
@@ -194,8 +185,25 @@
 
     A single file will be automatically created:
 
-    - `terraform.tfstate`: ???
+    | Name | Description |
+    | --- | --- |
+    | `terraform.tfstate` | A file containing the last known configuration (state) of your infrastructure |
 
     Feel free to have a quick look at the state file.
     Notice how the state file keeps track of the configuration of all read data sources and created resources.
-    You should never modify the state file manually; all changes should go through Terraform.
+    You must never modify the state file manually; all changes should go through Terraform.
+
+1. Verify that the Storage account has been created in the resource group:
+
+    ```console
+    $ az resource list -g example-rg -o table
+    Name               ResourceGroup    Location     Type                               Status
+    -----------------  ---------------  -----------  ---------------------------------  --------
+    examplestd64f295a  example-rg       northeurope  Microsoft.Storage/storageAccounts
+    ```
+
+Congrats, you've created your first resource using Terraform!
+
+As mentioned earlier, Terraform not only allows you to create new resources, but to effectively manage its entire lifecycle.
+
+Next, we'll make an update to the Storage account configuration, before we tear it all down again!
