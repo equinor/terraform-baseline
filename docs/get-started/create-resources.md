@@ -20,7 +20,7 @@ Let's create an Azure Storage account using Terraform:
     }
     ```
 
-1. Create a random suffix for resource names, and an Azure Storage account in the resource group:
+1. Create a random suffix for resource names using the built-in random provider, and an Azure Storage account in the resource group:
 
     ```terraform
     resource "random_id" "suffix" {
@@ -177,11 +177,13 @@ Let's create an Azure Storage account using Terraform:
 
     </details>
 
-1. Run the execution:
+1. Run the execution plan:
 
     ```console
     terraform apply tfplan
     ```
+
+    This will create the resources shown in the execution plan.
 
     A single file will be automatically created:
 
@@ -201,6 +203,8 @@ Let's create an Azure Storage account using Terraform:
     -----------------  ---------------  -----------  ---------------------------------  --------
     examplestd64f295a  example-rg       northeurope  Microsoft.Storage/storageAccounts
     ```
+
+    > It might take a few minutes before the Storage account appears in the output.
 
 Congrats, you've created your first resource using Terraform!
 
