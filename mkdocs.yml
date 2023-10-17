@@ -47,6 +47,8 @@ markdown_extensions:
 nav:
   - Home:
     - index.md
+    - best-practices.md
+    - module-library.md
   - Get started:
     - get-started/index.md
     - get-started/prerequisites.md
@@ -55,5 +57,3 @@ nav:
     - get-started/update-resources.md
     - get-started/destroy-resources.md
     - get-started/summary.md
-  - Reusable modules:
-    - reusable-modules.md
