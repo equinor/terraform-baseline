@@ -57,3 +57,6 @@ nav:
     - get-started/update-resources.md
     - get-started/destroy-resources.md
     - get-started/summary.md
+  - Reusable modules:
+    - reusable-modules/index.md
+    - reusable-modules/usage-examples.md
