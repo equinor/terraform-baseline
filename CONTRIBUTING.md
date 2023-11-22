@@ -1,6 +1,6 @@
 ## CONTRIBUTING
 
-This repository is maintained by the Ops team
+This repository is maintained by the Terraform Baseline team.
 
 ### Steps
 
