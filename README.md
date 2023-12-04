@@ -4,6 +4,8 @@
 
 Equinor Terraform Baseline (ETB) is a collection of tutorials on how to get started with Terraform in Equinor.
 
+Hosted in [GitHub Pages](https://equinor.github.io/terraform-baseline/).
+
 ## Development
 
 1. Read [this document](https://code.visualstudio.com/docs/devcontainers/containers).
