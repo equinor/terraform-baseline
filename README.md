@@ -1,31 +1,23 @@
 # Equinor Terraform Baseline
 
+[![ci](https://github.com/equinor/terraform-baseline/actions/workflows/ci.yml/badge.svg)](https://github.com/equinor/terraform-baseline/actions/workflows/ci.yml)
+
 Equinor Terraform Baseline (ETB) is a collection of tutorials on how to get started with Terraform in Equinor.
 
-## Why Terraform?
+Hosted in [GitHub Pages](https://equinor.github.io/terraform-baseline/).
 
-Write very short about Terraform, pros cons etc.
+## Development
 
-### Providers
+1. Read [this document](https://code.visualstudio.com/docs/devcontainers/containers).
 
-### Resources and data sources
+1. Open this repository in the development container.
 
-- Resources, data sources, modules
+1. Run the development server:
 
-- Resource and data sources defined by the providers.
-
-- Resource and data source definition syntax
-
-    ```terraform
-    resource "<provider>_<resource>" "<label>" {
-      # arguments
-    }
+    ```console
+    mkdocs serve
     ```
 
-- Where is documentation?
+## Contributing
 
-### Modules
-
-- Modules defined by you (and the community)!
-
-- Baseline modules example usage?
+See [Contributing guidelines](CONTRIBUTING.md).
