@@ -32,13 +32,13 @@ table = []
 columnSeparator = " | "
 rowSeparator = "\n"
 
-values = {
+dict = {
     "Module": "{moduleName}",
     "Repository": "[{repoName}]({repoUrl})",
     "Latest release": "{latestRelease}",
 }
 
-columns = values.keys()
+columns = dict.keys()
 table.append(columnSeparator.join(columns))
 table.append(columnSeparator.join(["---"] * (len(columns))))
 
@@ -48,10 +48,7 @@ for repo in repos:
     repoUrl = repo.get("html_url", "N/A")
     latestRelease = repo.get("latest_release", "N/A")
 
-    row = []
-    for column in columns:
-        row.append(values.get(column))
-
+    row = list(dict.values())
     markdownRow = columnSeparator.join(row).format(
         moduleName=moduleName,
         repoName=repoName,
