@@ -21,14 +21,14 @@ url = "https://api.github.com/search/repositories?q=org:{org} topic:{topic}".for
     org=githubOrg, topic=githubTopic
 )
 response = requests.get(url)
-responseData = response.json()
-repos = responseData.get("items")
+responseJson = response.json()
+repos = responseJson.get("items")
 
 ####################################################################################
 # Create Markdown table containing all Terraform Baseline modules
 ####################################################################################
 
-table = []
+rows = []
 columnSeparator = " | "
 rowSeparator = "\n"
 
@@ -39,8 +39,10 @@ dict = {
 }
 
 columns = dict.keys()
-table.append(columnSeparator.join(columns))
-table.append(columnSeparator.join(["---"] * (len(columns))))
+rows.append(columnSeparator.join(columns))
+rows.append(columnSeparator.join(["---"] * (len(columns))))
+
+row = columnSeparator.join(dict.values())
 
 for repo in repos:
     repoName = repo.get("name", "N/A")
@@ -48,24 +50,29 @@ for repo in repos:
     repoUrl = repo.get("html_url", "N/A")
     latestRelease = repo.get("latest_release", "N/A")
 
-    row = list(dict.values())
-    markdownRow = columnSeparator.join(row).format(
-        moduleName=moduleName,
-        repoName=repoName,
-        repoUrl=repoUrl,
-        latestRelease=latestRelease,
+    rows.append(
+        row.format(
+            moduleName=moduleName,
+            repoName=repoName,
+            repoUrl=repoUrl,
+            latestRelease=latestRelease,
+        )
     )
-    table.append(markdownRow)
 
-markdownTable = rowSeparator.join(table)
+table = rowSeparator.join(rows)
 
-if len(templatePath) == 0:
-    markdown = "# Module library\n\n{markdownTable}\n"
-else:
+####################################################################################
+# Create Markdown file containing table
+####################################################################################
+
+if len(templatePath) != 0:
     with open(templatePath, "r") as templateFile:
-        markdown = templateFile.read()
+        markdownTemplate = templateFile.read()
         templateFile.close()
+else:
+    # Fall back on simple template with header and table
+    markdownTemplate = "# Module library\n\n{markdownTable}\n"
 
 with open(outputPath, "w") as outputFile:
-    outputFile.write(markdown.format(markdownTable=markdownTable))
+    outputFile.write(markdownTemplate.format(markdownTable=table))
     outputFile.close()
