@@ -23,6 +23,7 @@ url = "https://api.github.com/search/repositories?q=org:{org} topic:{topic}".for
 response = requests.get(url)
 responseJson = response.json()
 repos = responseJson.get("items")
+reposSorted = sorted(repos, key=lambda repo: repo["name"])
 
 ####################################################################################
 # Create Markdown table containing all Terraform Baseline modules
@@ -34,8 +35,8 @@ rowSeparator = "\n"
 
 dict = {
     "Module": "{moduleName}",
-    "Repository": "[{repoName}]({repoUrl})",
-    "Latest release": "{latestRelease}",
+    "Repository": "[{repoFullName}]({repoUrl})",
+    "Latest release": "[![Release](https://img.shields.io/github/v/release/{repoFullName}?display_name=tag&sort=semver)]({repoUrl}/releases)",
 }
 
 columns = dict.keys()
@@ -44,18 +45,18 @@ rows.append(columnSeparator.join(["---"] * (len(columns))))
 
 row = columnSeparator.join(dict.values())
 
-for repo in repos:
+for repo in reposSorted:
     repoName = repo.get("name", "N/A")
     moduleName = repoName.replace("terraform-azurerm-", "")
+    repoFullName = repo.get("full_name", "N/A")
     repoUrl = repo.get("html_url", "N/A")
-    latestRelease = repo.get("latest_release", "N/A")
 
     rows.append(
         row.format(
             moduleName=moduleName,
             repoName=repoName,
+            repoFullName=repoFullName,
             repoUrl=repoUrl,
-            latestRelease=latestRelease,
         )
     )
 
