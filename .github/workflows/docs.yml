@@ -44,4 +44,3 @@ jobs:
           base: main
           title: "docs: update module library"
           body: ""
-          team-reviewers: terraform-baseline
