@@ -71,8 +71,8 @@ if len(templatePath) != 0:
         templateFile.close()
 else:
     # Fall back on simple template with header and table
-    markdownTemplate = "# Module library\n\n{markdownTable}\n"
+    markdownTemplate = "# Module library\n\n{table}\n"
 
 with open(outputPath, "w") as outputFile:
-    outputFile.write(markdownTemplate.format(markdownTable=table))
+    outputFile.write(markdownTemplate.format(table=table))
     outputFile.close()
