@@ -1,0 +1,40 @@
+name: docs
+
+on:
+  schedule:
+    - cron: "0 3 * * 1-5" # At 03:00 on every day-of-week from Monday through Friday.
+
+  workflow_dispatch: {}
+
+env:
+  OUTPUT_PATH: ${{ github.workspace }}/docs/module-library.md
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.0
+
+      - name: Run Python script
+        working-directory: scripts/module-library
+        env:
+          TEMPLATE_PATH: template.md
+        run: ./module-library.py -t "$TEMPLATE_PATH" -o "$OUTPUT_PATH"
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38
+        with:
+          branch: docs-update-module-library
+          add-paths: ${{ env.OUTPUT_PATH }}
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          commit-message: "docs: update module library"
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          base: main
+          title: "docs: update module library"
+          body: ""
