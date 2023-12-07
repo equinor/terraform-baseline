@@ -24,6 +24,8 @@ response = requests.get(url)
 responseJson = response.json()
 repos = responseJson.get("items")
 
+# TODO: sort repos by name
+
 ####################################################################################
 # Create Markdown table containing all Terraform Baseline modules
 ####################################################################################
@@ -34,8 +36,8 @@ rowSeparator = "\n"
 
 dict = {
     "Module": "{moduleName}",
-    "Repository": "[{repoName}]({repoUrl})",
-    "Latest release": "{latestRelease}",
+    "Repository": "[{repoFullName}]({repoUrl})",
+    "Latest release": "[![Release](https://img.shields.io/github/v/release/{repoFullName}?display_name=tag&sort=semver)]({repoUrl}/releases)",
 }
 
 columns = dict.keys()
@@ -47,15 +49,15 @@ row = columnSeparator.join(dict.values())
 for repo in repos:
     repoName = repo.get("name", "N/A")
     moduleName = repoName.replace("terraform-azurerm-", "")
+    repoFullName = repo.get("full_name", "N/A")
     repoUrl = repo.get("html_url", "N/A")
-    latestRelease = repo.get("latest_release", "N/A")
 
     rows.append(
         row.format(
             moduleName=moduleName,
             repoName=repoName,
+            repoFullName=repoFullName,
             repoUrl=repoUrl,
-            latestRelease=latestRelease,
         )
     )
 
