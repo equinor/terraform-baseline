@@ -23,6 +23,8 @@ This document provides best practices for developing reusable Terraform modules 
     * @equinor/terraform-baseline
     ```
 
+- Add topic `terraform-baseline` to the repository.
+
 ## Roles and scope
 
 - Use resources that do not require more than `Contributor` role at the resource group scope.
