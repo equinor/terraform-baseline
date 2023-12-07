@@ -23,8 +23,7 @@ url = "https://api.github.com/search/repositories?q=org:{org} topic:{topic}".for
 response = requests.get(url)
 responseJson = response.json()
 repos = responseJson.get("items")
-
-# TODO: sort repos by name
+reposSorted = sorted(repos, key=lambda repo: repo["name"])
 
 ####################################################################################
 # Create Markdown table containing all Terraform Baseline modules
@@ -46,7 +45,7 @@ rows.append(columnSeparator.join(["---"] * (len(columns))))
 
 row = columnSeparator.join(dict.values())
 
-for repo in repos:
+for repo in reposSorted:
     repoName = repo.get("name", "N/A")
     moduleName = repoName.replace("terraform-azurerm-", "")
     repoFullName = repo.get("full_name", "N/A")
