@@ -115,16 +115,11 @@ Variables and outputs should follow a common naming convention `<resource>_<bloc
 
 ### Repeatable resources
 
-- For repeatable resources that extend the main resource, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
+- For **named** repeatable resources (resources that support argument `name`), use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
 
     ```terraform
-    variable "server_name" {
-      description = "The name of this SQL server."
-      type        = string
-    }
-
     variable "firewall_rules" {
-      description = "A map of firewall rules to create for this SQL server."
+      description = "A map of SQL firewall rules to create."
 
       type = map(object({
         name             = string
@@ -132,27 +127,37 @@ Variables and outputs should follow a common naming convention `<resource>_<bloc
         end_ip_address   = string
       }))
 
-      default = {
-        this = {
-          name             = "AllowAllWindowsAzureIps"
-          start_ip_address = "0.0.0.0"
-          end_ip_address   = "0.0.0.0"
-        }
-      }
-    }
-
-    resource "azurerm_mssql_server" "this" {
-      name = var.server_name
-      # omitted
+      default = {}
     }
 
     resource "azurerm_mssql_firewall_rule" "this" {
       for_each = var.firewall_rules
 
       name             = each.value.name
-      server_id        = azurerm_mssql_server.this.id
       start_ip_address = each.value.start_ip_address
       end_ip_address   = each.value.end_ip_address
+    }
+    ```
+
+- For **unnamed** repeatable resources (usually a resources that link other resources together), use a variable of type `list(object())` to dynamically create the resources, where setting the value to `[]` will not create any resources.
+
+    ```terraform
+    variable "job_schedules" {
+      description = "A list of Automation job schedules to create."
+
+      type = list(object({
+        runbook_name  = string
+        schedule_name = string
+      }))
+
+      default = []
+    }
+
+    resource "azurerm_automation_job_schedule" "this" {
+      count = length(var.job_schedules)
+
+      runbook_name            = var.job_schedules[count.index].runbook_name
+      schedule_name           = var.job_schedules[count.index].schedule_name
     }
     ```
 
