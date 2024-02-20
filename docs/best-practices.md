@@ -93,6 +93,7 @@ Variables and outputs should follow a common naming convention `<resource>_<bloc
 ## Modules
 
 - A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single database. This creates a common expectation for the behavior of our modules.
+- A module should not create just a single resource. Exceptions can be made if that resource requires complex configuration or a stringent set of predefined parameters.
 
 ### Control plane and data plane
 
