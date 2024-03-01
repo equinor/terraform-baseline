@@ -11,7 +11,6 @@ theme:
   features:
   - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
   - navigation.tabs # Enables navigational tabs at top of page.
-  - navigation.indexes # Enables use of "index.md" pages.
   - navigation.top # Enables "back-to-top" button.
   - navigation.footer # Enables "previous" and "next" navigation buttons in footer
 
@@ -46,17 +45,8 @@ markdown_extensions:
 
 nav:
   - Home:
-    - index.md
-    - best-practices.md
-    - module-library.md
-  - Get started:
-    - get-started/index.md
-    - get-started/prerequisites.md
-    - get-started/syntax.md
-    - get-started/create-resources.md
-    - get-started/update-resources.md
-    - get-started/destroy-resources.md
-    - get-started/summary.md
-  - Reusable modules:
-    - reusable-modules/index.md
-    - reusable-modules/usage-examples.md
+    - Overview: index.md
+  - Best practices:
+    - Overview: best-practices.md
+  - Module library:
+    - Overview: module-library.md
