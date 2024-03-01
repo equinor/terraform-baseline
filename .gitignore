@@ -47,3 +47,6 @@ terraform.rc
 /.terraform
 /.terraform.lock.hcl
 /tfplan
+
+# Ignore Python virtual environment files
+venv
