@@ -48,5 +48,4 @@ nav:
     - Overview: index.md
   - Best practices:
     - Overview: best-practices.md
-  - Module library:
-    - Overview: module-library.md
+  - Module library: https://registry.terraform.io/search/modules?namespace=equinor&provider=azure
