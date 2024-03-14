@@ -58,7 +58,7 @@ jobs:
           tftest_results=$(cat "$TF_TEST_RESULTS_FILE")
           readarray -t tftest_array <<< "$tftest_results"
 
-          table_rows=("| Path | Run | Status | Error message |")
+          table_rows=("| Path | Run | Status | Details |")
           table_rows+=("| --- | --- | --- | --- |")
 
           for tftest_json in "${tftest_array[@]}"; do
@@ -85,12 +85,14 @@ jobs:
             fi
 
             error_message=""
-            if [[ "$status" == "fail" ]]; then
+            if [[ "$status" == "fail" || "$status" == "error" ]]; then
               status_emoji="x"
-              error_message=$(echo "$tftest_results" | jq -r '. | select(."@level"=="error") | .diagnostic.detail')
             fi
 
-            table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $error_message |")
+            # Get all errors for relevant file and run
+            details=$(echo "$tftest_results" | jq -r --arg testfile "$path" --arg testrun "$run" 'select(."@level"=="error" and ."@testfile"==$testfile and ."@testrun"==$testrun) | .diagnostic.detail' | sed ':a;N;$!ba;s/\n/<br>/g')
+
+            table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $details |")
           done
 
           table=$(printf "%s\n" "${table_rows[@]}")
