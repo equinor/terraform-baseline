@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_IN_AUTOMATION: true
-      TF_TEST_RESULTS_FILE: tftest
 
     steps:
       - name: Checkout
@@ -40,70 +39,6 @@ jobs:
 
       - name: Terraform Test
         id: test
-        # Ensure that the outcome of this step is "failure" when "terraform test" returns a non-zero exit code
-        shell: bash -o pipefail {0}
         env:
           TF_TEST_FILTER: ${{ inputs.test-filter }}
-        run: terraform test -filter="$TF_TEST_FILTER" -json | tee "$TF_TEST_RESULTS_FILE"
-
-      - name: Create job summary
-        if: success() || failure()
-        shell: bash {0}
-        env:
-          TF_FMT_OUTCOME: ${{ steps.fmt.outcome }}
-          TF_INIT_OUTCOME: ${{ steps.init.outcome }}
-          TF_VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
-          TF_TEST_OUTCOME: ${{ steps.test.outcome }}
-        run: |
-          tftest_results=$(cat "$TF_TEST_RESULTS_FILE")
-          readarray -t tftest_array <<< "$tftest_results"
-
-          table_rows=("| Path | Run | Status | Error message |")
-          table_rows+=("| --- | --- | --- | --- |")
-
-          for tftest_json in "${tftest_array[@]}"; do
-            type=$(echo "$tftest_json" | jq -r .type)
-
-            if [[ "$type" != "test_run" ]]; then
-              continue
-            fi
-
-            test_run=$(echo "$tftest_json" | jq .test_run)
-            progress=$(echo "$test_run" | jq -r .progress)
-
-            if [[ "$progress" != "complete" ]]; then
-              continue
-            fi
-
-            path=$(echo "$test_run" | jq -r .path)
-            run=$(echo "$test_run" | jq -r .run)
-            status=$(echo "$test_run" | jq -r .status)
-            status_emoji="heavy_minus_sign" # neutral/unknown by default
-
-            if [[ "$status" == "pass" ]]; then
-              status_emoji="heavy_check_mark"
-            fi
-
-            error_message=""
-            if [[ "$status" == "fail" ]]; then
-              status_emoji="x"
-              error_message=$(echo "$tftest_results" | jq -r '. | select(."@level"=="error") | .diagnostic.detail')
-            fi
-
-            table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $error_message |")
-          done
-
-          table=$(printf "%s\n" "${table_rows[@]}")
-
-          echo "#### Terraform Format and Style 🖌\`$TF_FMT_OUTCOME\`
-          #### Terraform Initialization ⚙\`$TF_INIT_OUTCOME\`
-          #### Terraform Validation 🤖\`$TF_VALIDATE_OUTCOME\`
-          #### Terraform Test 🧪\`$TF_TEST_OUTCOME\`
-
-          <details><summary>Show Tests</summary>
-
-          $table
-
-          </details>
-
-          *Pusher: @$GITHUB_ACTOR, Action: \`$GITHUB_EVENT_NAME\`, Workflow: \`$GITHUB_WORKFLOW\`*" >> "$GITHUB_STEP_SUMMARY"
+        run: terraform test -filter="$TF_TEST_FILTER"
