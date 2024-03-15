@@ -1,6 +1,7 @@
 # Equinor Terraform Baseline
 
 [![ci](https://github.com/equinor/terraform-baseline/actions/workflows/ci.yml/badge.svg)](https://github.com/equinor/terraform-baseline/actions/workflows/ci.yml)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-baseline/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-baseline/badge)
 
 Equinor Terraform Baseline (ETB) is a collection of tutorials on how to get started with Terraform in Equinor.
 
