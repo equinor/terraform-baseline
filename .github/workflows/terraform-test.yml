@@ -84,7 +84,6 @@ jobs:
               status_emoji="heavy_check_mark"
             fi
 
-            error_message=""
             if [[ "$status" == "fail" || "$status" == "error" ]]; then
               status_emoji="x"
             fi
