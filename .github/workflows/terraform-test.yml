@@ -58,7 +58,7 @@ jobs:
           tftest_results=$(cat "$TF_TEST_RESULTS_FILE")
           readarray -t tftest_array <<< "$tftest_results"
 
-          table_rows=("| Path | Run | Status | Error message |")
+          table_rows=("| Path | Run | Status | Details |")
           table_rows+=("| --- | --- | --- | --- |")
 
           for tftest_json in "${tftest_array[@]}"; do
@@ -84,13 +84,23 @@ jobs:
               status_emoji="heavy_check_mark"
             fi
 
-            error_message=""
-            if [[ "$status" == "fail" ]]; then
+            if [[ "$status" == "fail" || "$status" == "error" ]]; then
               status_emoji="x"
-              error_message=$(echo "$tftest_results" | jq -r '. | select(."@level"=="error") | .diagnostic.detail')
             fi
 
-            table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $error_message |")
+            error_details=$(echo "$tftest_results" | jq -r --arg testfile "$path" --arg testrun "$run" 'select(."@level"=="error" and ."@testfile"==$testfile and ."@testrun"==$testrun) | .diagnostic.detail')
+
+            details=$(echo "$error_details" | sed ':a;N;$!ba;s/\n/<br>/g')
+            # sed commands explained:
+            # 1) ':a'          - create a label (:) 'a' that we can branch back to.
+            # 2) 'N'           - append next (N) line.
+            # 3) '$!ba'        - if next line is not (!) the last line ($), branch (b) back to label 'a'.
+            # 4) 's/\n/<br>/g' - substitute (s) \n with <br> globally (g).
+            #
+            # Summary: append all lines and substitue all newlines with HTML <br> tags.
+            # Ref: https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html
+
+            table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $details |")
           done
 
           table=$(printf "%s\n" "${table_rows[@]}")
