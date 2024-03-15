@@ -92,8 +92,16 @@ jobs:
             # Get all errors for relevant file and run
             details=$(echo "$tftest_results" | jq -r --arg testfile "$path" --arg testrun "$run" 'select(."@level"=="error" and ."@testfile"==$testfile and ."@testrun"==$testrun) | .diagnostic.detail')
 
-            # Replace newlines with HTML break tags (only way to get line breaks in Markdown table cells)
+            # Replace newlines with HTML <br> tags
             details=$(echo "$details" | sed ':a;N;$!ba;s/\n/<br>/g')
+            # sed commands explained:
+            # 1) ':a'          - create a label (:) 'a' that we can branch back to.
+            # 2) 'N'           - append next (N) line.
+            # 3) '$!ba'        - if next line is not (!) the last line ($), branch (b) back to label 'a'.
+            # 4) 's/\n/<br>/g' - substitute (s) \n with <br> globally (g).
+            #
+            # Summary: append all lines and substitue all newlines with HTML <br> tags.
+            # Ref: https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html
 
             table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $details |")
           done
