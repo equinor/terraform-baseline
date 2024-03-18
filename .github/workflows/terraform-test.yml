@@ -62,44 +62,26 @@ jobs:
           table_rows+=("| --- | --- | --- | --- |")
 
           for tftest_json in "${tftest_array[@]}"; do
-            type=$(echo "$tftest_json" | jq -r .type)
+            type=$(jq -r '.type' <<<"$tftest_json")
+            test_run=$(jq -r '.test_run' <<<"$tftest_json")
+            progress=$(jq -r '.progress' <<<"$test_run")
+            path=$(jq -r '.path' <<<"$test_run")
+            run=$(jq -r '.run' <<<"$test_run")
+            status=$(jq -r '.status' <<<"$test_run")
 
-            if [[ "$type" != "test_run" ]]; then
+            if [[ "$type" != "test_run" ]] || [[ "$progress" != "complete" ]]; then
               continue
             fi
 
-            test_run=$(echo "$tftest_json" | jq .test_run)
-            progress=$(echo "$test_run" | jq -r .progress)
-
-            if [[ "$progress" != "complete" ]]; then
-              continue
-            fi
-
-            path=$(echo "$test_run" | jq -r .path)
-            run=$(echo "$test_run" | jq -r .run)
-            status=$(echo "$test_run" | jq -r .status)
             status_emoji="heavy_minus_sign" # neutral/unknown by default
-
             if [[ "$status" == "pass" ]]; then
               status_emoji="heavy_check_mark"
-            fi
-
-            if [[ "$status" == "fail" || "$status" == "error" ]]; then
+            elif [[ "$status" == "fail" || "$status" == "error" ]]; then
               status_emoji="x"
             fi
 
-            error_details=$(echo "$tftest_results" | jq -r --arg testfile "$path" --arg testrun "$run" 'select(."@level"=="error" and ."@testfile"==$testfile and ."@testrun"==$testrun) | .diagnostic.detail')
-
-            details=$(echo "$error_details" | sed ':a;N;$!ba;s/\n/<br>/g')
-            # sed commands explained:
-            # 1) ':a'          - create a label (:) 'a' that we can branch back to.
-            # 2) 'N'           - append next (N) line.
-            # 3) '$!ba'        - if next line is not (!) the last line ($), branch (b) back to label 'a'.
-            # 4) 's/\n/<br>/g' - substitute (s) \n with <br> globally (g).
-            #
-            # Summary: append all lines and substitue all newlines with HTML <br> tags.
-            # Ref: https://www.gnu.org/software/sed/manual/html_node/sed-commands-list.html
-
+            error_details=$(jq -r --arg testfile "$path" --arg testrun "$run" 'select(."@level"=="error" and ."@testfile"==$testfile and ."@testrun"==$testrun) | .diagnostic.detail' <<<"$tftest_results")
+            details=${error_details//$'\n'/<br>}
             table_rows+=("| \`$path\` | \`$run\` | :$status_emoji:**\`$status\`** | $details |")
           done
 
