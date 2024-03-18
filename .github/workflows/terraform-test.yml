@@ -76,7 +76,7 @@ jobs:
             status_emoji="heavy_minus_sign" # neutral/unknown by default
             if [[ "$status" == "pass" ]]; then
               status_emoji="heavy_check_mark"
-            elif [[ "$status" == "fail" || "$status" == "error" ]]; then
+            elif [[ "$status" == "fail" ]] || [[ "$status" == "error" ]]; then
               status_emoji="x"
             fi
 
