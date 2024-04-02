@@ -1,5 +1,6 @@
 name: Feature Request
 description: New feature or request
+title: Add something in some module
 labels: ["enhancement"]
 body:
   - type: markdown
@@ -22,3 +23,4 @@ body:
     attributes:
       label: Example Terraform Configuration
       description: Please provide an example Terraform configuration of how to use this feature.
+      render: terraform

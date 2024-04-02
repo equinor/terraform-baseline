@@ -1,5 +1,6 @@
 name: Bug Report
 description: Something isn't working
+title: Fix something in some module
 labels: ["bug"]
 body:
   - type: markdown
@@ -33,6 +34,7 @@ body:
     attributes:
       label: Example Terraform Configuration
       description: Please provide an example Terraform configuration that can reproduce the issue.
+      render: terraform
 
   - type: textarea
     attributes:
