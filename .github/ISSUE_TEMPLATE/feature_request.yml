@@ -1,0 +1,24 @@
+name: Feature Request
+description: New feature or request
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this feature request!
+
+  - type: input
+    attributes:
+      label: Module Name
+      description: Which module would you like to request a new feature for?
+      placeholder: storage
+
+  - type: input
+    attributes:
+      label: Description
+      description: Please describe the feature you would like to request.
+      placeholder: Add variable/resource/output ...
+
+  - type: input
+    attributes:
+      label: Example Terraform Configuration
+      description: Please provide an example Terraform configuration of how to use this feature.
