@@ -24,17 +24,17 @@ body:
       description: Which Terraform version are you using?
       placeholder: 1.0.0
 
-  - type: input
+  - type: textarea
     attributes:
       label: Description
       description: Please describe the issue you are experiencing.
 
-  - type: input
+  - type: textarea
     attributes:
       label: Example Terraform Configuration
       description: Please provide an example Terraform configuration that can reproduce the issue.
 
-  - type: input
+  - type: textarea
     attributes:
       label: Steps to Reproduce
       description: Please provide the steps required to reproduce the issue.
