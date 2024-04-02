@@ -1,11 +1,13 @@
-## CONTRIBUTING
+# Contributing guidelines
 
-This repository is maintained by the Terraform Baseline team.
+All Terraform Baseline repositories are maintained by the Terraform Baseline team.
 
-### Steps
+## Requesting changes
 
-1. Create a new branch.
+Open an issue in [this repository](https://github.com/equinor/terraform-baseline/issues/new/choose).
+
+## Making changes
+
+1. Fork the relevant module repository.
 1. Commit your changes.
 1. Create a pull request.
-1. Request a review.
-1. Once approved, merge to branch `main`.
