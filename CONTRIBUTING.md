@@ -1,8 +1,12 @@
-## CONTRIBUTING
+# Contributing guidelines
 
-This repository is maintained by the Terraform Baseline team.
+This repository and all Terraform Baseline module repositories are maintained by the Terraform Baseline team.
 
-### Steps
+## Issues
+
+...
+
+## Pull Requests
 
 1. Create a new branch.
 1. Commit your changes.

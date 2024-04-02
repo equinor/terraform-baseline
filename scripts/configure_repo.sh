@@ -11,7 +11,7 @@ gh repo edit "$repo" \
   --homepage "https://registry.terraform.io/modules/equinor/$module_name/azurerm/latest" \
   --add-topic "terraform-baseline" \
   --enable-wiki=false \
-  --enable-issues=true \
+  --enable-issues=false \
   --enable-projects=false \
   --default-branch="$default_branch" \
   --delete-branch-on-merge=true \
