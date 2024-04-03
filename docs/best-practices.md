@@ -15,12 +15,13 @@ This document provides best practices for developing reusable Terraform modules 
     | Team | Role |
     | --- | --- |
     | @equinor/terraform-baseline | `Write` |
+    | @equinor/terraform-baseline-maintainers | `Maintain` |
     | @equinor/terraform-baseline-admins | `Admin` |
 
 - Configure the following code owners in a file `.github/CODEOWNERS`:
 
     ```raw
-    * @equinor/terraform-baseline
+    * @equinor/terraform-baseline-maintainers
     ```
 
 - Add topic `terraform-baseline` to the repository.
