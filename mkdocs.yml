@@ -11,6 +11,7 @@ theme:
   features:
   - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
   - navigation.tabs # Enables navigational tabs at top of page.
+  - navigation.indexes # Enables use of "index.md" pages.
   - navigation.top # Enables "back-to-top" button.
   - navigation.footer # Enables "previous" and "next" navigation buttons in footer
 
@@ -47,5 +48,10 @@ nav:
   - Home:
     - Overview: index.md
   - Best practices:
-    - Overview: best-practices.md
+    - best-practices/index.md
+    - best-practices/repository.md
+    - best-practices/resources.md
+    - best-practices/variables-and-outputs.md
+    - best-practices/meta-arguments.md
+    - best-practices/testing.md
   - Module library: https://registry.terraform.io/search/modules?namespace=equinor&provider=azure
