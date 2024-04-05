@@ -1,6 +1,6 @@
 # Resources
 
-This document provides best practices for developing reusable Terraform modules in Equinor.
+- By default, configure resources based on Microsoft security recommendations, e.g. [Security recommendations for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations).
 
 ## Roles and scope
 
