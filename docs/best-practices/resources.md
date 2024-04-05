@@ -1,4 +1,4 @@
-# Best practices
+# Resources
 
 This document provides best practices for developing reusable Terraform modules in Equinor.
 
@@ -37,28 +37,12 @@ This document provides best practices for developing reusable Terraform modules 
 
   ![hidden resources](img/hidden-resources.png)
 
-## Variables and outputs
-
-- All arguments should be made available as variables.
-- All attributes should be made available as outputs.
-- Variables and outputs should follow a common naming convention `<resource>_<block>_<argument|attribute>`.
-    - **Known exception:** Variable and output names that contain the module name. For example, in module `storage` the variable `storage_account_name` should be named `account_name` instead.
-- Use description to describe the values of variables and outputs.
-- If valid variable values is known:
-    - Append to description:
-        - If set of valid values is known: `Value must be X or Y.`
-        - If range of valid values is known: `Value must be between X and Y.`
-        - If subset of valid values is known: `Possible values include X, Y and Z.`
-        - If format of valid values is known: `Value must be in F format, e.g. X, Y and Z.`
-    - Add [custom validation rules](https://developer.hashicorp.com/terraform/language/values/variables#custom-validation-rules).
-- Use simple variable types (`string`, `number` and `bool`) over complex variable types (`list`, `object` and `map`) where possible.
-
 ## Modules
 
 - A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single database. This creates a common expectation for the behavior of our modules.
 - A module should not create just a single resource. Exceptions can be made if that resource requires complex configuration or a stringent set of predefined parameters.
 
-### Control plane and data plane
+## Control plane and data plane
 
 - A module should only perform control plane operations (e.g., managing Storage account or Key vault), not data plane operations (e.g., managing Storage container or Key vault secret). See [control plane and data plane](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/control-plane-and-data-plane) in Microsoft docs.
 
@@ -69,15 +53,7 @@ This document provides best practices for developing reusable Terraform modules 
 
   > **Note** Might be irrelevant depending on the implementation of github/roadmap#614.
 
-## Automated tests
-
-- Automated tests should be implemented for all variants of the relevant resource using [Terratest](https://terratest.gruntwork.io/). For example, in the `storage` module, automated tests should be implemented for standard GPv2 storage, premium GPv2 storage, standard blob storage, premium block blob storage and premium file storage.
-
-## Resources
-
-- By default, configure resources based on Microsoft security recommendations, e.g. [Security recommendations for Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations).
-
-### Repeatable resources
+## Repeatable resources
 
 - For **named** repeatable resources (resources that support argument `name`), use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
 
@@ -125,7 +101,7 @@ This document provides best practices for developing reusable Terraform modules 
     }
     ```
 
-### Repeatable nested blocks
+## Repeatable nested blocks
 
 - For repeatable nested blocks, use a variable of type `list(object())` to dynamically create the nested blocks, where setting the value to `[]` will not create any nested blocks:
 
@@ -159,7 +135,7 @@ This document provides best practices for developing reusable Terraform modules 
     }
     ```
 
-### Non-repeatable nested blocks
+## Non-repeatable nested blocks
 
 - For non-repeatable nested blocks, use a variable of type `object()` to dynamically create the nested block, where setting the value to `null` will not create the nested block.
 
@@ -202,9 +178,3 @@ This document provides best practices for developing reusable Terraform modules 
     >
     > - Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
     > - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
-
-## Lifecycle meta-arguments
-
-- The [`prevent_destroy` lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy) should be used sparingly. A [`CanNotDelete` lock](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources) should be used instead.
-
-- The [`ignore_changes` lifecycle meta-argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#ignore_changes) should be used sparingly, as heavy use could lead to configuration drift.

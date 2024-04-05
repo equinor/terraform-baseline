@@ -12,12 +12,16 @@ body:
       label: Module Name
       description: Which module would you like to request a new feature for?
       placeholder: storage
+    validations:
+      required: true
 
   - type: textarea
     attributes:
       label: Description
       description: Please describe the feature you would like to request.
       placeholder: Add variable/resource/output ...
+    validations:
+      required: true
 
   - type: textarea
     attributes:

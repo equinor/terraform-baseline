@@ -1,12 +1,12 @@
-# SECURITY
+# Security policy
 
 If you discover a security vulnerability in this project, please follow the steps below to report it.
 
 ## For "non-critical" issues
 
-Create a GitHub issue for the vulnerability and ask the maintainer to reach our to you. Avoid putting sensitive information in the issue.
+Create a GitHub issue for the vulnerability and ask the maintainer to reach out to you. Avoid putting sensitive information in the issue.
 
-### For "critical" and time sensitive issues
+## For "critical" and time sensitive issues
 
 Send email to [it-security@equinor.com](mailto:it-security@equinor.com) or​ phone the Equinor helpdesk:
 

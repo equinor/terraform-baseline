@@ -12,23 +12,31 @@ body:
       label: Module Name
       description: Which module are you experiencing issues with?
       placeholder: storage
+    validations:
+      required: true
 
   - type: input
     attributes:
       label: Module Version
       description: Which module version are you using?
       placeholder: 1.0.0
+    validations:
+      required: true
 
   - type: input
     attributes:
       label: Terraform Version
       description: Which Terraform version are you using?
       placeholder: 1.0.0
+    validations:
+      required: true
 
   - type: textarea
     attributes:
       label: Description
       description: Please describe the issue you are experiencing.
+    validations:
+      required: true
 
   - type: textarea
     attributes:
