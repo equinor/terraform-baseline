@@ -28,7 +28,7 @@ External contributors must create a fork of the relevant repository.
   - Suggest changes through pull requests.
   - Have basic understanding of best practices defined by the baseline.
 
-### Maintainers
+### 👷‍♀️ Maintainers
 
 This project is maintained by members of internal @equinor/terraform-baseline-maintainers team.
 
@@ -40,6 +40,6 @@ What it means to be a maintainer:
 - Have very good understanding of best practices defined by the baseline.
 - Review and approve pull requests.
 
-### 👩‍✈️ Administrators
+### 👮‍♂️ Administrators
 
 This project is administered by members of the internal @equinor/terraform-baseline-admins team.
