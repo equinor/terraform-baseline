@@ -34,6 +34,7 @@ theme:
 markdown_extensions:
   - toc:
       permalink: true
+  - admonition # Enables "call-outs" (notes, info, warnings etc.)
   - pymdownx.highlight # Enable syntax highlighting of code blocks.
   - pymdownx.superfences # Enable arbitrary nesting of code and content blocks inside each other.
   - attr_list # Open links in new tabs by using syntax [<text>](<url>){target=_blank}.
