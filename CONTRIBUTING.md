@@ -14,33 +14,40 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 ## 🤝 Roles and responsibilities
 
-This section describes the various roles in the Terraform Baseline project.
+This section describes the various roles and responsibilities in the Terraform Baseline project.
 
 ### 👨‍🎓 Contributors
 
-- Members of [@equinor/terraform-baseline](https://github.com/orgs/equinor/teams/terraform-baseline) team.
-- Contributors (members of internal team ) have direct write access to all Terraform Baseline repositories.
-- Internal
-- Internal contributors are expected to:
-  - Suggest changes through pull requests.
-  - Have basic understanding of best practices defined by the baseline.
+Contributors must:
+
+- Be a member of the [@equinor/terraform-baseline](https://github.com/orgs/equinor/teams/terraform-baseline) team.
+- Have basic understanding of Terraform.
+- Have basic understanding of Terraform Baseline best practices.
+- Actively contribute to one or more Terraform Baseline repositories.
 
 ### 👷‍♀️ Maintainers
 
-- Members of [@equinor/terraform-baseline-maintainers](https://github.com/orgs/equinor/teams/terraform-baseline-maintainers) team.
-- This project is maintained by members of internal @equinor/terraform-baseline-maintainers team.
-- Direct maintain access to all Terraform Baseline repositories.
-- What it means to be a maintainer:
-- Have very good understanding of Terraform.
-- Have very good understanding of best practices defined by the baseline.
-- Review and approve pull requests.
+A maintainer must:
+
+- Be a member of the [@equinor/terraform-baseline-maintainers](https://github.com/orgs/equinor/teams/terraform-baseline-maintainers) team.
+- Have complete understanding of Terraform.
+- Have complete understanding of Terraform Baseline best practices.
+- Review and approve pull requests in all Terraform Baseline repositories.
+
+A maintainer should:
+
+- Communicate and share with other maintainers.
 
 ### 👮‍♂️ Administrators
 
-- Members of [@equinor/terraform-baseline-admins](https://github.com/orgs/equinor/teams/terraform-baseline-admins) team.
-- This project is administered by members of the internal @equinor/terraform-baseline-admins team.
+An administrator must:
+
+- Be a member of the [@equinor/terraform-baseline-admins](https://github.com/orgs/equinor/teams/terraform-baseline-admins) team.
+- Create and configure module repositories.
 
 ### 🦸‍♀️ External contributors
 
-- None of the above.
-- Must create a fork of the relevant repository to make changes.
+External contributors should:
+
+- Create forks of Terraform Baseline repositories.
+- Create pull requests in Terraform Baseline repositories.
