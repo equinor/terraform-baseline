@@ -10,5 +10,6 @@ ETB is currently written as an extension of [Terraform Best Practices](https://w
 Before using ETB, you should be familiar with the following pages from the official Terraform documentation:
 
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+- [Style Guide](https://developer.hashicorp.com/terraform/language/style)
 - [Version Constraints](https://developer.hashicorp.com/terraform/language/expressions/version-constraints)
 - [Publishing Modules](https://developer.hashicorp.com/terraform/registry/modules/publish)
