@@ -45,9 +45,13 @@ An administrator must:
 - Be a member of the [@equinor/terraform-baseline-admins](https://github.com/orgs/equinor/teams/terraform-baseline-admins) team.
 - Create and configure module repositories.
 
+An administrator should:
+
+- Recruit people to the above roles 🤗
+
 ### 🦸‍♀️ External contributors
 
-External contributors should:
+An external contributor should:
 
 - Create forks of Terraform Baseline repositories.
 - Create pull requests in Terraform Baseline repositories.
