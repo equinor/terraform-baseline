@@ -16,13 +16,13 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 This section describes the various roles in the Terraform Baseline project.
 
-### External contributors
+### 🦸‍♀️ External contributors
 
 External contributors must create a fork of the relevant repository.
 
-### Internal contributors
+### 👨‍🎓 Contributors
 
-- Internal contributors (members of internal team @equinor/terraform-baseline) have direct write access to all Terraform Baseline repositories.
+- Contributors (members of internal team @equinor/terraform-baseline) have direct write access to all Terraform Baseline repositories.
 - Internal
 - Internal contributors are expected to:
   - Suggest changes through pull requests.
