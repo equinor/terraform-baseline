@@ -1,6 +1,6 @@
 # Contributing guidelines
 
-This document gives an overview of how to contribute to the Terraform Baseline project.
+This document gives an overview of how to contribute to Terraform Baseline repositories.
 
 ## 💡 Requesting changes
 
@@ -55,3 +55,7 @@ An external contributor should:
 
 - Create forks of Terraform Baseline repositories.
 - Create pull requests in Terraform Baseline repositories.
+
+## 🔑 License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
