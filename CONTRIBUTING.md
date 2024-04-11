@@ -18,7 +18,7 @@ This section describes the various roles in the Terraform Baseline project.
 
 ### 🦸‍♀️ External contributors
 
-External contributors must create a fork of the relevant repository.
+- External contributors must create a fork of the relevant repository.
 
 ### 👨‍🎓 Contributors
 
@@ -30,16 +30,13 @@ External contributors must create a fork of the relevant repository.
 
 ### 👷‍♀️ Maintainers
 
-This project is maintained by members of internal @equinor/terraform-baseline-maintainers team.
-
-Direct maintain access to all Terraform Baseline repositories.
-
-What it means to be a maintainer:
-
+- This project is maintained by members of internal @equinor/terraform-baseline-maintainers team.
+- Direct maintain access to all Terraform Baseline repositories.
+- What it means to be a maintainer:
 - Have very good understanding of Terraform.
 - Have very good understanding of best practices defined by the baseline.
 - Review and approve pull requests.
 
 ### 👮‍♂️ Administrators
 
-This project is administered by members of the internal @equinor/terraform-baseline-admins team.
+- This project is administered by members of the internal @equinor/terraform-baseline-admins team.
