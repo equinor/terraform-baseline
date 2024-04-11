@@ -33,6 +33,7 @@ A maintainer must:
 - Have complete understanding of Terraform.
 - Have complete understanding of Terraform Baseline best practices.
 - Review and approve pull requests in all Terraform Baseline repositories.
+- Discuss and update best practices when needed.
 
 A maintainer should:
 
