@@ -2,9 +2,18 @@
 
 - Use [this template](https://github.com/equinor/terraform-module-template) when creating your repository.
 
-- Use the common naming convention `terraform-azurerm-<name>` when naming your repository.
+- Use the common naming convention `terraform-azurerm-<module>` when naming your repository, where `<module>` is the name of the module.
 
-    For example, if you want to create a module named `storage`, the repository should be named `terraform-azurerm-storage`.
+    Modules should be named after the corresponding Azure CLI group or subgroup, for example:
+
+    - Terraform module [`key-vault`](https://registry.terraform.io/modules/equinor/key-vault/azurerm/latest) corresponds to Azure CLI group [`keyvault`](https://learn.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest).
+
+    - Terraform module [`storage`](https://registry.terraform.io/modules/equinor/storage/azurerm/latest) corresponds to Azure CLI group [`storage`](https://learn.microsoft.com/en-us/cli/azure/storage?view=azure-cli-latest).
+
+    - Terraform module [`log-analytics`](https://registry.terraform.io/modules/equinor/log-analytics/azurerm/latest) corresponds to Azure CLI subgroup [`log-analytics`](https://learn.microsoft.com/en-us/cli/azure/monitor/log-analytics?view=azure-cli-latest).
+
+!!! note
+    Azure CLI uses inconsistent separation of words in group names. We choose to consistenly separate words by `-` in module names.
 
 - Configure the following accesses for the repository:
 
