@@ -56,7 +56,3 @@ An external contributor should:
 
 - Create forks of Terraform Baseline repositories.
 - Create pull requests in Terraform Baseline repositories.
-
-## 🔑 License
-
-This project is licensed under the terms of the [MIT license](LICENSE).
