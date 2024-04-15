@@ -18,25 +18,28 @@ This section describes the various roles and responsibilities in the Terraform B
 
 ### 👨‍🎓 Contributors
 
-Contributors must:
+A contributor must:
 
 - Be a member of the [@equinor/terraform-baseline](https://github.com/orgs/equinor/teams/terraform-baseline) team.
+- Actively contribute to one or more Terraform Baseline repositories.
+
+A contributor should:
+
 - Have basic understanding of Terraform.
 - Have basic understanding of Terraform Baseline best practices.
-- Actively contribute to one or more Terraform Baseline repositories.
 
 ### 👷‍♀️ Maintainers
 
 A maintainer must:
 
 - Be a member of the [@equinor/terraform-baseline-maintainers](https://github.com/orgs/equinor/teams/terraform-baseline-maintainers) team.
-- Have complete understanding of Terraform.
-- Have complete understanding of Terraform Baseline best practices.
 - Review and approve pull requests in all Terraform Baseline repositories.
 - Discuss and update best practices when needed.
 
 A maintainer should:
 
+- Have complete understanding of Terraform.
+- Have complete understanding of Terraform Baseline best practices.
 - Communicate and share with other maintainers.
 
 ### 👮‍♂️ Administrators
