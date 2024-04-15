@@ -6,7 +6,7 @@ This document gives an overview of how to contribute to Terraform Baseline repos
 
 Open an issue in [this repository](https://github.com/equinor/terraform-baseline/issues/new/choose).
 
-## ✏ Making changes
+## 📝 Making changes
 
 1. Create a new branch.
 1. Commit your changes.
