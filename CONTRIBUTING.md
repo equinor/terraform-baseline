@@ -16,6 +16,13 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 This section describes the various roles and responsibilities in the Terraform Baseline project.
 
+### 🦸‍♀️ External contributors
+
+An external contributor should:
+
+- Create forks of Terraform Baseline repositories.
+- Create pull requests in Terraform Baseline repositories.
+
 ### 👨‍🎓 Contributors
 
 A contributor must:
@@ -52,10 +59,3 @@ An administrator must:
 An administrator should:
 
 - Recruit people to the above roles 🤗
-
-### 🦸‍♀️ External contributors
-
-An external contributor should:
-
-- Create forks of Terraform Baseline repositories.
-- Create pull requests in Terraform Baseline repositories.
