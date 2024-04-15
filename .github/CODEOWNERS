@@ -1,4 +1,4 @@
 * @equinor/terraform-baseline-maintainers
 
-CONTRIBUTING.md @equinor/terraform-baseline-admins
+**/CONTRIBUTING.md @equinor/terraform-baseline-admins
 **/CODEOWNERS @equinor/terraform-baseline-admins
