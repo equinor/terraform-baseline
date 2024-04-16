@@ -18,6 +18,8 @@
 
     ```raw
     * @equinor/terraform-baseline-maintainers
+
+    **/CODEOWNERS @equinor/terraform-baseline-admins
     ```
 
 - Add topic `terraform-baseline` to the repository.
