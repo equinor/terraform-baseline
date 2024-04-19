@@ -21,7 +21,7 @@ This section describes the various roles and responsibilities in the Terraform B
 An external contributor should:
 
 - Create forks of Terraform Baseline repositories.
-- Create pull requests in Terraform Baseline repositories.
+- Create issues and pull requests in Terraform Baseline repositories.
 
 ### 👨‍🎓 Contributors
 
