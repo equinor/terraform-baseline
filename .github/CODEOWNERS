@@ -1,1 +1,3 @@
-* @equinor/terraform-baseline
+* @equinor/terraform-baseline-maintainers
+
+**/CODEOWNERS @equinor/terraform-baseline-admins

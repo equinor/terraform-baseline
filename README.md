@@ -54,3 +54,7 @@ Hosted in [GitHub Pages](https://equinor.github.io/terraform-baseline/).
 ## Contributing
 
 See [Contributing guidelines](CONTRIBUTING.md).
+
+## License
+
+This project is licensed under the terms of the [MIT license](LICENSE).
