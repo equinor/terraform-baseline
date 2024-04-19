@@ -60,4 +60,5 @@ An administrator should:
 
 - Configure module repositories.
 - Publish modules to Terraform Registry.
+- Archive deprecated module repositories.
 - Recruit people to the above roles 🤗
