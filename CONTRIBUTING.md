@@ -34,6 +34,7 @@ A contributor should:
 
 - Have basic understanding of Terraform.
 - Have basic understanding of Terraform Baseline best practices.
+- Create module repositories.
 
 ### 👷‍♀️ Maintainers
 
@@ -54,8 +55,9 @@ A maintainer should:
 An administrator must:
 
 - Be a member of the [@equinor/terraform-baseline-admins](https://github.com/orgs/equinor/teams/terraform-baseline-admins) team.
-- Create and configure module repositories.
 
 An administrator should:
 
+- Configure module repositories.
+- Public modules to Terraform Registry.
 - Recruit people to the above roles 🤗
