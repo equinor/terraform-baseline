@@ -117,40 +117,40 @@
 
   **Note:** This is important because the nested block may not be supported in certain scenarios. For example, `blob_properties` for `azurerm_storage_account` is only supported if `account_kind` is set to `StorageV2` or `BlobStorage`.
 
-    ```terraform
-    variable "account_kind" {
-      description = "The kind of storage account to create."
-      type        = string
-      default     = "StorageV2"
-    }
+  ```terraform
+  variable "account_kind" {
+    description = "The kind of storage account to create."
+    type        = string
+    default     = "StorageV2"
+  }
 
-    variable "blob_properties" {
-      description = "The blob properties for this storage account."
+  variable "blob_properties" {
+    description = "The blob properties for this storage account."
 
-      type = object({
-        versioning_enabled  = optional(bool, true)
-        change_feed_enabled = optional(bool, true)
-      })
+    type = object({
+      versioning_enabled  = optional(bool, true)
+      change_feed_enabled = optional(bool, true)
+    })
 
-      default = {}
-    }
+    default = {}
+  }
 
-    resource "azurerm_storage_account" "this" {
-      # omitted
-      account_kind = var.account_kind
+  resource "azurerm_storage_account" "this" {
+    # omitted
+    account_kind = var.account_kind
 
-      dynamic "blob_properties" {
-        for_each = var.blob_properties != null ? [var.blob_properties] : []
+    dynamic "blob_properties" {
+      for_each = var.blob_properties != null ? [var.blob_properties] : []
 
-        content {
-          versioning_enabled  = blob_properties.value["versioning_enabled"]
-          change_feed_enabled = blob_properties.value["change_feed_enabled"]
-        }
+      content {
+        versioning_enabled  = blob_properties.value["versioning_enabled"]
+        change_feed_enabled = blob_properties.value["change_feed_enabled"]
       }
     }
-    ```
+  }
+  ```
 
-    > Known exceptions to this rule would be:
-    >
-    > - Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
-    > - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
+  Known exceptions to this rule would be:
+
+  - Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
+  - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
