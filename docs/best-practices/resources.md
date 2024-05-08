@@ -29,9 +29,36 @@
 
   > **Note** Might be irrelevant depending on the implementation of github/roadmap#614.
 
+## Conditional resources
+
+- Use the `count` meta-argument to conditionally create resources based on a static value, for example a local or variable of type `string` or `bool`.
+
+    Using a variable of type `string` string is the more extensible approach, as you can add more allowed values down the road:
+
+    ```terraform
+    variable "kind" {
+      description = "The kind of Web App to create. Allowed values are \"Linux\" and \"Windows\"."
+      type        = string
+      default     = "Linux"
+
+      validation {
+        condition     = contains(["Linux", "Windows"], var.kind)
+        error_message = "Kind must be \"Linux\" or \"Windows\"."
+      }
+    }
+
+    resource "azurerm_linux_web_app" "this" {
+      count = var.kind == "Linux" ? 1 : 0
+    }
+
+    resource "azurerm_windows_web_app" "this" {
+      count = var.kind == "Windows" ? 1 : 0
+    }
+    ```
+
 ## Repeatable resources
 
-- For **named** repeatable resources (resources that support argument `name`), use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
+- For repeatable resources, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
 
     ```terraform
     variable "firewall_rules" {
@@ -52,28 +79,6 @@
       name             = each.value.name
       start_ip_address = each.value.start_ip_address
       end_ip_address   = each.value.end_ip_address
-    }
-    ```
-
-- For **unnamed** repeatable resources (usually a resources that link other resources together), use a variable of type `list(object())` to dynamically create the resources, where setting the value to `[]` will not create any resources.
-
-    ```terraform
-    variable "job_schedules" {
-      description = "A list of Automation job schedules to create."
-
-      type = list(object({
-        runbook_name  = string
-        schedule_name = string
-      }))
-
-      default = []
-    }
-
-    resource "azurerm_automation_job_schedule" "this" {
-      count = length(var.job_schedules)
-
-      runbook_name            = var.job_schedules[count.index].runbook_name
-      schedule_name           = var.job_schedules[count.index].schedule_name
     }
     ```
 
