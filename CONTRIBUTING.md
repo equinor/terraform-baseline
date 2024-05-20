@@ -18,8 +18,8 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 1. Check if there are **breaking changes** requiring users to update their module calls:
 
      - Add required variable.
-     - Remove or rename variable.
-     - Remove or rename output.
+     - Remove variable or output.
+     - Rename variable or output.
 
 1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types.
 
