@@ -8,9 +8,36 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 ## 📝 Making changes
 
-1. Create a new branch.
+1. Create a new branch. For external contributors, create a fork.
 1. Commit your changes.
-1. Create a pull request.
+1. Create a pull request (PR).
+1. If a relevant issue exists, [link your PR to that issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+
+## ✅ Reviewing changes
+
+1. Check if there are **breaking changes** requiring users to update their module calls:
+
+     - Add required variable.
+     - Remove or rename variable.
+     - Remove or rename output.
+
+1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/).
+
+    Allowed types:
+
+      - **feat:** add or remove something (resource, argument, nested block, variable or output)
+      - **fix:** fix something broken
+      - **refactor:** change something without adding, removing or fixing anything
+      - **docs:** document something
+      - **chore:** everything else
+
+    If the PR makes changes to a submodule, set the optional scope to the name of that submodule. For example, if the PR makes changes to the `database` submodule in the `sql` module:
+
+    ```plaintext
+    feat(database): set default STR backup interval to 12 hours
+    ```
+
+    The PR title will be used as the commit message when squash merging.
 
 ## 🤝 Roles and responsibilities
 
