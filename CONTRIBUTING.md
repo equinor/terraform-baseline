@@ -21,23 +21,13 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
      - Remove or rename variable.
      - Remove or rename output.
 
-1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/).
-
-    Allowed types:
+1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types.
 
       - **feat:** add or remove something (resource, argument, nested block, variable or output)
       - **fix:** fix something broken
       - **refactor:** change something without adding, removing or fixing anything
       - **docs:** document something
       - **chore:** everything else
-
-    If the PR makes changes to a submodule, set the optional scope to the name of that submodule. For example, if the PR makes changes to the `database` submodule in the `sql` module:
-
-    ```plaintext
-    feat(database): set default STR backup interval to 12 hours
-    ```
-
-    The PR title will be used as the commit message when squash merging.
 
 ## 🤝 Roles and responsibilities
 
