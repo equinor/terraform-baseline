@@ -15,11 +15,18 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 ## ✅ Reviewing changes
 
-1. Check if there are **breaking changes** requiring users to update their module calls:
+1. If any resources are added or updated, ensure that they follow the [best practices for resources](docs/best-practices/resources.md).
+1. If any variables are added or updated, ensure that they follow the [best practices for variables](docs/best-practices/variables-and-outputs.md).
+1. If any outputs are added or updated, ensure that they follow the [best practices for outputs](docs/best-practices/variables-and-outputs.md).
+1. If any meta-arguments (`count`, `for_each`) or -blocks (`lifecycle`) are used, ensure that they follow the [best practices for meta-arguments](docs/best-practices/meta-arguments.md).
+1. Check if there are any **breaking changes** that will require users to update their module calls:
 
-     - Add required variable.
+     - Add variable without default value.
+     - Update variable type.
+     - Update output value.
      - Rename variable or output.
      - Remove variable or output.
+     - Remove `moved` block.
 
 1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types:
 
