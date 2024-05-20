@@ -21,7 +21,7 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
      - Rename variable or output.
      - Remove variable or output.
 
-1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types.
+1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types:
 
       - **feat:** add or remove something (resource, argument, nested block, variable or output)
       - **fix:** fix something broken
