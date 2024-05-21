@@ -8,9 +8,33 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 ## 📝 Making changes
 
-1. Create a new branch.
+1. Create a new branch. For external contributors, create a fork.
 1. Commit your changes.
-1. Create a pull request.
+1. Create a pull request (PR).
+1. If a relevant issue exists, [link your PR to that issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+
+## ✅ Reviewing changes
+
+1. If any resources are added or updated, ensure that they follow the [best practices for resources](docs/best-practices/resources.md).
+1. If any variables are added or updated, ensure that they follow the [best practices for variables](docs/best-practices/variables-and-outputs.md).
+1. If any outputs are added or updated, ensure that they follow the [best practices for outputs](docs/best-practices/variables-and-outputs.md).
+1. If any meta-arguments (`count`, `for_each`) or -blocks (`lifecycle`) are used, ensure that they follow the [best practices for meta-arguments](docs/best-practices/meta-arguments.md).
+1. Check if there are any **breaking changes** that will require users to update their module calls:
+
+     - Add variable without default value.
+     - Update variable type.
+     - Update output value.
+     - Rename variable or output.
+     - Remove variable or output.
+     - Remove `moved` block.
+
+1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types:
+
+      - **feat:** add or remove something (resource, argument, nested block, variable or output)
+      - **fix:** fix something broken
+      - **refactor:** change something without adding, removing or fixing anything
+      - **docs:** document something
+      - **chore:** everything else
 
 ## 🤝 Roles and responsibilities
 
