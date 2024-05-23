@@ -12,4 +12,6 @@
         - If subset of valid values is known: `Possible values include X, Y and Z.`
         - If format of valid values is known: `Value must be in F format, e.g. X, Y and Z.`
     - Add [custom validation rules](https://developer.hashicorp.com/terraform/language/values/variables#custom-validation-rules).
-- Use simple variable types (`string`, `number` and `bool`) over complex variable types (`list`, `object` and `map`) where possible.
+- Use simple types (`string`, `number` and `bool`) over complex types (`list`, `object` and `map`) for variables and outputs where possible:
+    - Variables and outputs of simpler types are easier to write good descriptions for. For example, it's easier to write a good description for a simple string than for an object with multiple string properties.
+    - It's easier for a user to pass a simple string to a variable than to construct and pass a complex object.
