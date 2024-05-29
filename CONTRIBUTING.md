@@ -28,6 +28,8 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
      - Remove variable or output.
      - Remove `moved` block.
 
+      Changing required provider versions do **not** count as breaking. It is expected of users to keep providers up-to-date.
+
 1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types:
 
       - **feat:** add or remove something (resource, argument, nested block, variable or output)
