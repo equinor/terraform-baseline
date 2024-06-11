@@ -10,6 +10,7 @@ default_branch="main"
 gh repo edit "$repo" \
   --homepage "https://registry.terraform.io/modules/equinor/$module_name/azurerm/latest" \
   --add-topic "terraform-baseline" \
+  --add-topic "terraform-module" \
   --enable-wiki=false \
   --enable-issues=false \
   --enable-projects=false \

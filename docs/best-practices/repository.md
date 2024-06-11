@@ -31,4 +31,4 @@
     **/CODEOWNERS @equinor/terraform-baseline-admins
     ```
 
-- Add topic `terraform-baseline` to the repository.
+- Add topics `terraform-baseline` and `terraform-module` to the repository.
