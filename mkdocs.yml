@@ -49,4 +49,4 @@ nav:
     - best-practices/variables-and-outputs.md
     - best-practices/meta-arguments.md
     - best-practices/testing.md
-  - Module library: https://registry.terraform.io/search/modules?namespace=equinor&provider=azure
+  - Module library: https://registry.terraform.io/namespaces/equinor
