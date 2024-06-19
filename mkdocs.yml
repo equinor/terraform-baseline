@@ -14,6 +14,8 @@ theme:
   - navigation.indexes # Enables use of "index.md" pages.
   - navigation.top # Enables "back-to-top" button.
   - navigation.footer # Enables "previous" and "next" navigation buttons in footer
+  - content.action.edit # Enables "Edit this page" button.
+  - content.code.copy # Enables "Copy to clipboard" button for code blocks.
 
   palette:
     # Palette toggle for light mode
