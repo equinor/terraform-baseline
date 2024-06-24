@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/stale@v9
         with:
-          days-before-stale: 60 # default value
-          days-before-close: 14  # default value
+          days-before-stale: 60
+          days-before-close: 14
           stale-issue-label: "stale"
           stale-issue-message: "There has been no activity on this issue for 60 days. `stale` label will be added. If no additional activity occurs, the issue will be closed in 14 days."
           close-issue-message: "There has been no activity on this stale issue for 14 days. This issue will now be closed. If new activity occurs, the issue will reopen."
