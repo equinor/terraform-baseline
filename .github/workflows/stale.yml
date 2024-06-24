@@ -1,0 +1,23 @@
+name: 'Close stale issues and PRs'
+on:
+  schedule:
+    - cron: "0 3 * * 1-5" # "At 03:00 on every day-of-week from Monday through Friday."
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 60 # default value
+          days-before-close: 14  # default value
+          stale-issue-label: "stale"
+          stale-issue-message: "There has been no activity on this issue for 60 days. `stale` label will be added. If no additional activity occurs, the issue will be closed in 14 days."
+          close-issue-message: "There has been no activity on this stale issue for 14 days. This issue will now be closed. If new activity occurs, the issue will reopen."
+          stale-pr-message: "There has been no activity on this pull request for 60 days. `stale` label will be added. If no additional activity occurs, the pull request will be closed in 14 days."
+          stale-pr-label: "stale"
+          close-pr-message: "There has been no activity on this stale pull request for 14 days. This pull request will now be closed. If new activity occurs, the pull request will reopen."
