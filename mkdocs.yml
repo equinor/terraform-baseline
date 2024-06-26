@@ -10,8 +10,6 @@ theme:
     repo: fontawesome/brands/github
   features:
   - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
-  - navigation.tabs # Enables navigational tabs at top of page.
-  - navigation.indexes # Enables use of "index.md" pages.
   - navigation.top # Enables "back-to-top" button.
   - navigation.footer # Enables "previous" and "next" navigation buttons in footer
   - content.action.edit # Enables "Edit this page" button.
@@ -32,7 +30,6 @@ theme:
         icon: material/weather-night
         name: Switch to light mode
 
-
 markdown_extensions:
   - toc:
       permalink: true
@@ -42,10 +39,8 @@ markdown_extensions:
   - attr_list # Open links in new tabs by using syntax [<text>](<url>){target=_blank}.
 
 nav:
-  - Home:
-    - Overview: index.md
+  - Overview: index.md
   - Best practices:
-    - best-practices/index.md
     - best-practices/repository.md
     - best-practices/resources.md
     - best-practices/variables-and-outputs.md
