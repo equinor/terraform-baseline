@@ -1,0 +1,14 @@
+name: Daily actions
+
+on:
+  schedule:
+    - cron: "0 3 * * 1-5" # "At 03:00 on every day-of-week from Monday through Friday."
+
+jobs:
+  stale:
+    name: Stale
+    uses: equinor/terraform-baseline/.github/workflows/stale.yml
+    with:
+      days-before-stale: 60
+      days-before-close: 14
+      label: stale
