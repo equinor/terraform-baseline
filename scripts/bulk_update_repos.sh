@@ -14,7 +14,7 @@ branch_name=$2
 commit_message=$3
 
 owner="equinor"
-repos=$(gh repo list "$owner" --visibility public --topic terraform-baseline --limit 999999 --json name --jq .[].name)
+repos=$(gh repo list "$owner" --visibility public --topic terraform-module,terraform-baseline --limit 999999 --json name --jq .[].name)
 root=$(pwd)
 
 for repo in "${repos[@]}"; do
