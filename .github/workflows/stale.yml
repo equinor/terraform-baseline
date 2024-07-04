@@ -11,7 +11,7 @@ on:
       days-before-close:
         description: The idle number of days before closing the stale issues or the stale pull requests (due to the stale label).
         type: number
-        default: 7
+        default: 14
 
       label:
         description: Label to apply on issues and pull requests.

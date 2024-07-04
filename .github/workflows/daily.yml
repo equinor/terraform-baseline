@@ -9,7 +9,3 @@ jobs:
   stale:
     name: Stale
     uses: ./.github/workflows/stale.yml
-    with:
-      days-before-stale: 60
-      days-before-close: 14
-      label: stale
