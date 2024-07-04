@@ -6,19 +6,16 @@ on:
       days-before-stale:
         description: The idle number of days before marking the issues or the pull requests as stale (by adding a label).
         type: number
-        required: true
         default: 60
 
       days-before-close:
         description: The idle number of days before closing the stale issues or the stale pull requests (due to the stale label).
         type: number
-        required: true
         default: 7
 
       label:
         description: Label to apply on issues and pull requests.
         type: string
-        required: true
         default: stale
 
 permissions:
