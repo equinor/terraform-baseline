@@ -1,4 +1,5 @@
 name: Daily actions
+run-name: Daily actions
 
 on:
   schedule:
@@ -7,7 +8,7 @@ on:
 jobs:
   stale:
     name: Stale
-    uses: equinor/terraform-baseline/.github/workflows/stale.yml
+    uses: ./.github/workflows/stale.yml
     with:
       days-before-stale: 60
       days-before-close: 14
