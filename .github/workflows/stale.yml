@@ -1,7 +1,28 @@
-name: 'Close stale issues and PRs'
+name: ♻ Close stale issues and PRs
+
 on:
   schedule:
     - cron: "0 3 * * 1-5" # "At 03:00 on every day-of-week from Monday through Friday."
+
+  workflow_call:
+    inputs:
+      days-before-stale:
+        description: The idle number of days before marking the issues or the pull requests as stale (by adding a label).
+        type: number
+        required: true
+        default: 60
+
+      days-before-close:
+        description: The idle number of days before closing the stale issues or the stale pull requests (due to the stale label).
+        type: number
+        required: true
+        default: 7
+
+      label:
+        description: "Label to apply on issues and pull requests."
+        type: string
+        required: true
+        default: stale
 
 permissions:
   issues: write
@@ -13,11 +34,11 @@ jobs:
     steps:
       - uses: actions/stale@v9
         with:
-          days-before-stale: 60
-          days-before-close: 14
-          stale-issue-label: "stale"
-          stale-issue-message: "There has been no activity on this issue for 60 days. `stale` label will be added. If no additional activity occurs, the issue will be closed in 14 days."
-          close-issue-message: "There has been no activity on this stale issue for 14 days. This issue will now be closed. If new activity occurs, the issue will reopen."
-          stale-pr-message: "There has been no activity on this pull request for 60 days. `stale` label will be added. If no additional activity occurs, the pull request will be closed in 14 days."
-          stale-pr-label: "stale"
-          close-pr-message: "There has been no activity on this stale pull request for 14 days. This pull request will now be closed. If new activity occurs, the pull request will reopen."
+          days-before-stale: ${{ inputs.days-before-stale}}
+          days-before-close: ${{ inputs.days-before-close}}
+          stale-issue-label: ${{ inputs.label}}
+          stale-issue-message: "There has been no activity on this issue for ${{ inputs.days-before-stale}} days. ${{ inputs.label}} label will be added. If no additional activity occurs, the issue will be closed in ${{ inputs.days-before-close}} days."
+          close-issue-message: "There has been no activity on this stale issue for ${{ inputs.days-before-close}} days. This issue will now be closed. If new activity occurs, the issue will reopen."
+          stale-pr-label: ${{ inputs.label}}
+          stale-pr-message: "There has been no activity on this pull request for ${{ inputs.days-before-stale}} days. ${{ inputs.label}} label will be added. If no additional activity occurs, the pull request will be closed in ${{ inputs.days-before-close}} days."
+          close-pr-message: "There has been no activity on this stale pull request for ${{ inputs.days-before-close}} days. This pull request will now be closed. If new activity occurs, the pull request will reopen."
