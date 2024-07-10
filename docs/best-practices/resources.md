@@ -88,78 +88,75 @@ resource "azurerm_mssql_firewall_rule" "this" {
 
 ## Repeatable nested blocks
 
-- For repeatable nested blocks, use a variable of type `list(object())` to dynamically create the nested blocks, where setting the value to `[]` will not create any nested blocks:
+**Repeatable nested blocks** refers to the creation of 0 or more [dynamic blocks](https://developer.hashicorp.com/terraform/language/expressions/dynamic-blocks) based on a value.
 
-    ```terraform
-    variable "auth_settings_active_directory" {
-      description = "A list of authentication settings using the Active Directory provider to configure for this Linux web app."
+For repeatable nested blocks, use a variable of type `list(object())` to dynamically create the nested blocks, where setting the value to `[]` will not create any nested blocks:
 
-      type = list(object({
-        client_id                  = string
-        client_secret_setting_name = string
-      }))
+```terraform
+variable "auth_settings_active_directory" {
+  description = "A list of authentication settings using the Active Directory provider to configure for this Linux web app."
 
-      default = []
-    }
+  type = list(object({
+    client_id                  = string
+    client_secret_setting_name = string
+  }))
 
-    resource "azurerm_linux_web_app" "this" {
-      # omitted
+  default = []
+}
 
-      auth_settings {
-        enabled = length(var.auth_settings_active_directory) == 0 ? false : true
+resource "azurerm_linux_web_app" "this" {
+  # omitted
 
-        dynamic "active_directory" {
-          for_each = var.auth_settings_active_directory
+  auth_settings {
+    enabled = length(var.auth_settings_active_directory) == 0 ? false : true
 
-          content {
-            client_id                  = active_directory.value["client_id"]
-            client_secret_setting_name = active_directory.value["client_secret_setting_name"]
-          }
-        }
+    dynamic "active_directory" {
+      for_each = var.auth_settings_active_directory
+
+      content {
+        client_id                  = active_directory.value["client_id"]
+        client_secret_setting_name = active_directory.value["client_secret_setting_name"]
       }
     }
-    ```
+  }
+}
+```
 
 ## Non-repeatable nested blocks
 
-- For non-repeatable nested blocks, use a variable of type `object()` to dynamically create the nested block, where setting the value to `null` will not create the nested block.
+**Non-repeatable nested blocks** refers to the creation of 0 or 1 dynamic blocks based on a value.
 
-  **Note:** This is important because the nested block may not be supported in certain scenarios. For example, `blob_properties` for `azurerm_storage_account` is only supported if `account_kind` is set to `StorageV2` or `BlobStorage`.
+For non-repeatable nested blocks, use a variable of type `object()` to dynamically create the nested block, where setting the value to `null` will not create the nested block:
 
-  ```terraform
-  variable "account_kind" {
-    description = "The kind of storage account to create."
-    type        = string
-    default     = "StorageV2"
-  }
+```terraform
+variable "blob_properties" {
+  description = "The blob properties for this storage account."
 
-  variable "blob_properties" {
-    description = "The blob properties for this storage account."
+  type = object({
+    versioning_enabled  = optional(bool, true)
+    change_feed_enabled = optional(bool, true)
+  })
 
-    type = object({
-      versioning_enabled  = optional(bool, true)
-      change_feed_enabled = optional(bool, true)
-    })
+  default = {}
+}
 
-    default = {}
-  }
+resource "azurerm_storage_account" "this" {
+  # omitted
 
-  resource "azurerm_storage_account" "this" {
-    # omitted
-    account_kind = var.account_kind
+  dynamic "blob_properties" {
+    for_each = var.blob_properties != null ? [var.blob_properties] : []
 
-    dynamic "blob_properties" {
-      for_each = var.blob_properties != null ? [var.blob_properties] : []
-
-      content {
-        versioning_enabled  = blob_properties.value["versioning_enabled"]
-        change_feed_enabled = blob_properties.value["change_feed_enabled"]
-      }
+    content {
+      versioning_enabled  = blob_properties.value["versioning_enabled"]
+      change_feed_enabled = blob_properties.value["change_feed_enabled"]
     }
   }
-  ```
+}
+```
 
-  Known exceptions to this rule would be:
+!!! abstract "Rationale"
+    A nested block may not be supported in certain scenarios. For example, the `blob_properties` nested block for the `azurerm_storage_account` resource is only supported if the value of the `account_kind` argument is set to `StorageV2` or `BlobStorage`.
 
-  - Blocks that are defined as required by the provider (e.g. the `site_config` block for the `azurerm_linux_web_app` resource).
-  - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the `auth_settings` block for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
+!!! info "Exceptions"
+    - Blocks that are defined as required by the provider (e.g. the [`site_config` block](https://registry.terraform.io/providers/hashicorp/azurerm/3.0.2/docs/resources/linux_web_app#site_config) for the `azurerm_linux_web_app` resource).
+    - Blocks that are optional but requires an argument to enable/disable its functionality (e.g. the [`auth_settings` block](https://registry.terraform.io/providers/hashicorp/azurerm/3.0.2/docs/resources/linux_web_app#auth_settings) for the `azurerm_linux_web_app` resource which requires an argument `enabled`).
