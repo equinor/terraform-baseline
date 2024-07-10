@@ -31,6 +31,9 @@
 
 ## Conditional resources
 
+!!! info
+    Conditional resources refers to the creation of 0 or 1 resources based on a condition.
+
 - Use the `count` meta-argument to conditionally create resources based on a static value, for example a local or variable of type `string` or `bool`.
 
     Using a variable of type `string` string is the more extensible approach, as you can add more allowed values down the road:
