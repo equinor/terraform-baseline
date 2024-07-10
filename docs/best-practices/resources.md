@@ -31,59 +31,60 @@
 
 ## Conditional resources
 
-!!! info "Definition"
-    **Conditional resources:** the creation of 0 or 1 resources based on a condition.
+**Conditional resources** refers to the creation of 0 or 1 resources based on a condition.
 
-- Use the `count` meta-argument to conditionally create resources based on a static value, for example a local or variable of type `string` or `bool`.
+Use the `count` meta-argument to conditionally create resources based on a static value, for example a local or variable of type `string` or `bool`.
 
-    Using a variable of type `string` string is the more extensible approach, as you can add more allowed values down the road:
+Using a variable of type `string` string is the more extensible approach, as you can add more allowed values down the road:
 
-    ```terraform
-    variable "kind" {
-      description = "The kind of Web App to create. Allowed values are \"Linux\" and \"Windows\"."
-      type        = string
-      default     = "Linux"
+```terraform
+variable "kind" {
+  description = "The kind of Web App to create. Allowed values are \"Linux\" and \"Windows\"."
+  type        = string
+  default     = "Linux"
 
-      validation {
-        condition     = contains(["Linux", "Windows"], var.kind)
-        error_message = "Kind must be \"Linux\" or \"Windows\"."
-      }
-    }
+  validation {
+    condition     = contains(["Linux", "Windows"], var.kind)
+    error_message = "Kind must be \"Linux\" or \"Windows\"."
+  }
+}
 
-    resource "azurerm_linux_web_app" "this" {
-      count = var.kind == "Linux" ? 1 : 0
-    }
+resource "azurerm_linux_web_app" "this" {
+  count = var.kind == "Linux" ? 1 : 0
+}
 
-    resource "azurerm_windows_web_app" "this" {
-      count = var.kind == "Windows" ? 1 : 0
-    }
-    ```
+resource "azurerm_windows_web_app" "this" {
+  count = var.kind == "Windows" ? 1 : 0
+}
+```
 
 ## Repeatable resources
 
-- For repeatable resources, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
+**Repeatable resources** refers to the creation of 0 or more resources based on a value.
 
-    ```terraform
-    variable "firewall_rules" {
-      description = "A map of SQL firewall rules to create."
+For repeatable resources, use a variable of type `map(object())` to dynamically create the resources, where setting the value to `{}` will not create any resources.
 
-      type = map(object({
-        name             = string
-        start_ip_address = string
-        end_ip_address   = string
-      }))
+```terraform
+variable "firewall_rules" {
+  description = "A map of SQL firewall rules to create."
 
-      default = {}
-    }
+  type = map(object({
+    name             = string
+    start_ip_address = string
+    end_ip_address   = string
+  }))
 
-    resource "azurerm_mssql_firewall_rule" "this" {
-      for_each = var.firewall_rules
+  default = {}
+}
 
-      name             = each.value.name
-      start_ip_address = each.value.start_ip_address
-      end_ip_address   = each.value.end_ip_address
-    }
-    ```
+resource "azurerm_mssql_firewall_rule" "this" {
+  for_each = var.firewall_rules
+
+  name             = each.value.name
+  start_ip_address = each.value.start_ip_address
+  end_ip_address   = each.value.end_ip_address
+}
+```
 
 ## Repeatable nested blocks
 
