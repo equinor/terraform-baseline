@@ -20,8 +20,8 @@
     | Team | Role |
     | --- | --- |
     | @equinor/terraform-baseline | `Write` |
-    | @equinor/terraform-baseline-maintainers | `Maintain` |
     | @equinor/terraform-baseline-admins | `Admin` |
+    | @equinor/terraform-baseline-maintainers | `Maintain` |
 
 - Configure the following code owners in a file `.github/CODEOWNERS`:
 
