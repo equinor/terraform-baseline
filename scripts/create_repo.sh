@@ -3,8 +3,9 @@
 set -eu
 
 module_name=$1
+provider=${2:-"azurerm"}
 
-gh repo create "equinor/terraform-azurerm-$module_name" \
+gh repo create "equinor/terraform-$provider-$module_name" \
   --public \
   --template equinor/terraform-module-template
 
