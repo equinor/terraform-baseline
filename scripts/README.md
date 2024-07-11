@@ -17,7 +17,7 @@ cd scripts/
 Create a GitHub repository for your Terraform module:
 
 ```console
-./create_repo.sh <module_name>
+./create_repo.sh <module_name> [<provider>]
 ```
 
 For example, to create a module named `storage`:
@@ -26,10 +26,16 @@ For example, to create a module named `storage`:
 ./create_repo.sh storage
 ```
 
+Or create a module named `app` for the `azuread` provider:
+
+```console
+./create_repo.sh app azuread
+```
+
 Configure the repository with the recommended settings:
 
 ```console
-./configure_repo.sh <module_name>
+./configure_repo.sh <module_name> [<provider>]
 ```
 
 ## Bulk update repositories

@@ -3,12 +3,13 @@
 set -eu
 
 module_name=$1
+provider=${2:-"azurerm"}
 
-repo="equinor/terraform-azurerm-$module_name"
+repo="equinor/terraform-$provider-$module_name"
 default_branch="main"
 
 gh repo edit "$repo" \
-  --homepage "https://registry.terraform.io/modules/equinor/$module_name/azurerm/latest" \
+  --homepage "https://registry.terraform.io/modules/equinor/$module_name/$provider/latest" \
   --add-topic "terraform-baseline" \
   --add-topic "terraform-module" \
   --enable-wiki=false \
