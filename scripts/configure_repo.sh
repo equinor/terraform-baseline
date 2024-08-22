@@ -13,7 +13,7 @@ gh repo edit "$repo" \
   --add-topic "terraform-baseline" \
   --add-topic "terraform-module" \
   --enable-wiki=false \
-  --enable-issues=false \
+  --enable-issues=true \
   --enable-projects=false \
   --default-branch="$default_branch" \
   --delete-branch-on-merge=true \

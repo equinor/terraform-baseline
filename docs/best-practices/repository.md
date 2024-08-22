@@ -17,10 +17,10 @@
 
 - Configure the following accesses for the repository:
 
-    | Team | Role |
-    | --- | --- |
-    | @equinor/terraform-baseline | `Write` |
-    | @equinor/terraform-baseline-admins | `Admin` |
+    | Team                                    | Role       |
+    | --------------------------------------- | ---------- |
+    | @equinor/terraform-baseline             | `Write`    |
+    | @equinor/terraform-baseline-admins      | `Admin`    |
     | @equinor/terraform-baseline-maintainers | `Maintain` |
 
 - Configure the following code owners in a file `.github/CODEOWNERS`:
@@ -32,3 +32,5 @@
     ```
 
 - Add topics `terraform-baseline` and `terraform-module` to the repository.
+
+- Create and configure a new duplicate [auto-add workflow](https://docs.github.com/en/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically) in [this GitHub project](https://github.com/orgs/equinor/projects/627) to automatically track new issues created in the module repository.
