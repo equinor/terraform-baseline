@@ -38,6 +38,12 @@ markdown_extensions:
   - pymdownx.superfences # Enable arbitrary nesting of code and content blocks inside each other.
   - attr_list # Open links in new tabs by using syntax [<text>](<url>){target=_blank}.
 
+extra_css:
+  # Add Equinor fonts
+  - https://cdn.eds.equinor.com/font/equinor-font.css
+  # Add custom styling
+  - stylesheets/extra.css
+
 nav:
   - Overview: index.md
   - Best practices:
