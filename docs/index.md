@@ -1,15 +1,54 @@
 # Equinor Terraform Baseline
 
-Equinor Terraform Baseline (ETB) is:
+## Introduction
+
+Equinor Terraform Baseline is:
 
 - A set of best practices for creating reusable Terraform modules using the Azure provider.
 - A library of reusable Terraform modules that have been created using these best practices.
 
-ETB is currently written as an extension of [Terraform Best Practices](https://www.terraform-best-practices.com), however the long-term goal is for ETB to be a complete replacement.
+## Creating modules
 
-Before using ETB, you should be familiar with the following pages from the official Terraform documentation:
+Before creating a module, you should be familiar with the following pages from the official Terraform documentation:
 
-- [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Style Guide](https://developer.hashicorp.com/terraform/language/style)
-- [Version Constraints](https://developer.hashicorp.com/terraform/language/expressions/version-constraints)
 - [Publishing Modules](https://developer.hashicorp.com/terraform/registry/modules/publish)
+
+When creating a module, be sure to follow our [best practices](./best-practices/repository.md).
+
+## Using modules
+
+Call a module by using the following syntax:
+
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+module "example" {
+  source  = "equinor/<module>/azurerm"
+  version = "<version>"
+
+  # insert inputs here
+}
+```
+
+`<module>` is the name of a module in the [module library](https://registry.terraform.io/search/modules?namespace=equinor), and `<version>` is the specific version of that module to be installed.
+
+The documentation for each module lists the available versions and inputs.
+
+### Version updates
+
+Use [Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) to keep modules you use updated to the latest versions.
+
+Create a Dependabot configuration file `.github/dependabot.yml` in your repository containing the following configuration:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: terraform
+    directories: [/terraform/**/*]
+    groups:
+      terraform:
+        patterns: ["*"]
+```
