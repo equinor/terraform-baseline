@@ -15,8 +15,20 @@
 
 ## Modules
 
-- A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single database. This creates a common expectation for the behavior of our modules.
+- A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single server. This creates a common expectation for the behavior of our modules.
 - A module should not create just a single resource. Exceptions can be made if that resource requires complex configuration or a stringent set of predefined parameters.
+
+### Submodules
+
+If a resource is a child of another resource:
+
+- The parent resource should be configured as a module
+- The child resource should be configured as a submodule
+
+For example, the SQL database resource is a child of the SQL server resource (a SQL database cannot exist without a SQL server):
+
+- The SQL server resource should be configured as a module `sql`
+- The SQL database resource should be configured as a submodule `sql//modules/database`
 
 ## Control plane and data plane
 
