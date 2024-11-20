@@ -18,7 +18,7 @@
 - A single module call should create a single instance of the main resource created by the module. For example, the `web-app` module should create a single web app, and the `sql` module should create a single server. This creates a common expectation for the behavior of our modules.
 - A module should not create just a single resource. Exceptions can be made if that resource requires complex configuration or a stringent set of predefined parameters.
 
-### Sub-modules
+### Submodules
 
 If a resource is a child of another resource:
 
