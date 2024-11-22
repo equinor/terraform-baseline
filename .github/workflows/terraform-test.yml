@@ -44,7 +44,12 @@ jobs:
         shell: bash -o pipefail {0}
         env:
           TF_TEST_FILTER: ${{ inputs.test-filter }}
-        run: terraform test -filter="$TF_TEST_FILTER" -json | tee "$TF_TEST_RESULTS_FILE"
+        run: |
+          optional_args=()
+          if [[ -n "$TF_TEST_FILTER" ]]; then
+            optional_args+=(-filter="$TF_TEST_FILTER")
+          fi
+          terraform test -json "${optional_args[@]}" | tee "$TF_TEST_RESULTS_FILE"
 
       - name: Create job summary
         if: success() || failure()
