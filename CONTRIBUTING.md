@@ -9,7 +9,7 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 ## 📝 Making changes
 
 1. Create a new branch. For external contributors, create a fork.
-1. Commit your changes.
+1. Commit your changes. Your commit message should follow the [Conventional Commits specificiation](#-commit-messages)
 1. Create a pull request (PR).
 1. If a relevant issue exists, [link your PR to that issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
@@ -30,13 +30,49 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
       Changing required provider versions do **not** count as breaking. It is expected of users to keep providers up-to-date.
 
-1. Ensure that the PR title follows the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and is using one of the following allowed types:
+1. Ensure that the PR title follows the [Conventional Commits specificiation](#-commit-messages).
 
-      - **feat:** add or remove something (resource, argument, nested block, variable or output)
-      - **fix:** fix something broken
-      - **refactor:** change something without adding, removing or fixing anything
-      - **docs:** document something
-      - **chore:** everything else
+## 📋 Commit messages
+
+Commit messages should follow the [Conventional Commits specificiation](https://www.conventionalcommits.org/en/v1.0.0/) and use one of the following types:
+
+- **feat:** add or remove something (resource, argument, nested block, variable or output)
+- **fix:** fix something broken
+- **refactor:** change something without adding, removing or fixing anything
+- **docs:** document something
+- **chore:** everything else
+
+Example commit messages for common changes:
+
+- Create a resource:
+
+  ```plaintext
+  feat: create <resource>
+  ```
+
+- Add a variable that allows setting the value of an argument:
+
+  ```plaintext
+  feat: configure <argument>
+  ```
+
+- Add an output that outputs the value of an argument:
+
+  ```plaintext
+  feat: output <argument>
+  ```
+
+- Add an argument and set its value to `true`:
+
+  ```plaintext
+  feat: enable <argument>
+  ```
+
+- Add an argument and set its value to `false`:
+
+  ```plaintext
+  feat: disable <argument>
+  ```
 
 ## 🤝 Roles and responsibilities
 
