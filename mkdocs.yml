@@ -9,11 +9,11 @@ theme:
     logo: fontawesome/solid/cube # Set icon to cube to represent the baseline as a "building block"
     repo: fontawesome/brands/github
   features:
-  - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
-  - navigation.top # Enables "back-to-top" button.
-  - navigation.footer # Enables "previous" and "next" navigation buttons in footer
-  - content.action.edit # Enables "Edit this page" button.
-  - content.code.copy # Enables "Copy to clipboard" button for code blocks.
+    - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
+    - navigation.top # Enables "back-to-top" button.
+    - navigation.footer # Enables "previous" and "next" navigation buttons in footer
+    - content.action.edit # Enables "Edit this page" button.
+    - content.code.copy # Enables "Copy to clipboard" button for code blocks.
 
   palette:
     # Palette toggle for light mode
@@ -47,9 +47,9 @@ extra_css:
 nav:
   - Overview: index.md
   - Best practices:
-    - best-practices/repository.md
-    - best-practices/resources.md
-    - best-practices/variables-and-outputs.md
-    - best-practices/meta-arguments.md
-    - best-practices/testing.md
-  - Module library: https://registry.terraform.io/search/modules?namespace=equinor
+      - best-practices/repository.md
+      - best-practices/resources.md
+      - best-practices/variables-and-outputs.md
+      - best-practices/meta-arguments.md
+      - best-practices/testing.md
+  - Module library: https://github.com/equinor?q=topic%3Aterraform-baseline+topic%3Aterraform-module
