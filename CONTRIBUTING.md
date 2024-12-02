@@ -67,7 +67,7 @@ A contributor should:
 A maintainer must:
 
 - Be a member of the [@equinor/terraform-baseline-maintainers](https://github.com/orgs/equinor/teams/terraform-baseline-maintainers) team.
-- Review and approve pull requests in all Terraform Baseline repositories.
+- Review, approve and merge pull requests in all Terraform Baseline repositories.
 - Discuss and update best practices when needed.
 
 A maintainer should:
