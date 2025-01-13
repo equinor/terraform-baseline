@@ -13,3 +13,21 @@ Before using ETB, you should be familiar with the following pages from the offic
 - [Style Guide](https://developer.hashicorp.com/terraform/language/style)
 - [Version Constraints](https://developer.hashicorp.com/terraform/language/expressions/version-constraints)
 - [Publishing Modules](https://developer.hashicorp.com/terraform/registry/modules/publish)
+
+## Usage
+
+### Version updates
+
+Use [Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) to keep modules you use updated to the latest versions.
+
+Create a Dependabot configuration file `.github/dependabot.yml` in your repository containing the following configuration:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: terraform
+    directories: [/terraform/**/*]
+    groups:
+      terraform:
+        patterns: ["*"]
+```
