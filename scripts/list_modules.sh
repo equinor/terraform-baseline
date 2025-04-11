@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# List all Equinor Terraform Baseline modules as GitHub flavored Markdown checkboxes.
+# List all Terraform Baseline modules as GitHub flavored Markdown checkboxes.
 # Useful when creating Issues that require updating all module repositories.
 #
 # Prerequisites:

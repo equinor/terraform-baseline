@@ -1,4 +1,4 @@
-site_name: Equinor Terraform Baseline
+site_name: Terraform Baseline
 
 repo_name: equinor/terraform-baseline
 repo_url: https://github.com/equinor/terraform-baseline

@@ -1,10 +1,10 @@
-# Equinor Terraform Baseline
+# Terraform Baseline
 
 [![GitHub License](https://img.shields.io/github/license/equinor/terraform-baseline)](https://github.com/equinor/terraform-baseline/blob/main/LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 [![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/terraform-baseline/badge)](https://developer.equinor.com/governance/scm-policy/)
 
-Equinor Terraform Baseline (ETB) is:
+Terraform Baseline is:
 
 - 📝 A set of best practices for creating reusable Terraform modules using the Azure provider.
 - 📚 A library of reusable Terraform modules that have been created using these best practices.
