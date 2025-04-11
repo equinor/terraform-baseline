@@ -14,6 +14,18 @@ Before using ETB, you should be familiar with the following pages from the offic
 - [Version Constraints](https://developer.hashicorp.com/terraform/language/expressions/version-constraints)
 - [Publishing Modules](https://developer.hashicorp.com/terraform/registry/modules/publish)
 
+## Core principles
+
+The best practices defined by the Terraform baseline are based on a set of core principles:
+
+- **Simplicity:** The contents of a module should be *minimal* and *simple*.
+- **Consistency**: A module should follow *consistent* naming conventions, coding standards and structure.
+- **Reusability**: A module should be designed to be *reusable* across different projects and environments.
+- **Transparency**: The purpose of a module should be *clear* and *well-documented*.
+- **Predictability**: The behavior of a module should be *predictable*.
+- **Security**: A module should follow *security best practices* to minimize risks.
+- **Maintainability**: A module should be easy to maintain with minimal technical depth.
+
 ## Usage
 
 ### Version updates
