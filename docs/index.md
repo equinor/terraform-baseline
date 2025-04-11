@@ -1,11 +1,11 @@
 # Terraform Baseline
 
-Terraform Baseline is:
+Terraform baseline is:
 
 - A set of best practices for creating reusable Terraform modules using the Azure provider.
 - A library of reusable Terraform modules that have been created using these best practices.
 
-Before using ETB, you should be familiar with the following pages from the official Terraform documentation:
+Before using Terraform baseline, you should be familiar with the following pages from the official Terraform documentation:
 
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Style Guide](https://developer.hashicorp.com/terraform/language/style)
