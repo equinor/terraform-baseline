@@ -6,7 +6,7 @@ Following is a proposed agenda for these meetups:
 
 1. Collectively select an attendee to be reponsible for taking notes during this meetup. This person will be responsible for writing a summary of this meetup.
 1. Open the [GitHub project](https://github.com/orgs/equinor/projects/627):
-    1. Go through issues with status `Review` and discuss / perfowm the following actions in the given order:
+    1. Go through issues with status `Review` and discuss / perform the following actions in the given order:
         1. Has the issue been resolved?
         1. Has the solution been properly documented?
         1. Set status to `Done` (or other appropriate status)
