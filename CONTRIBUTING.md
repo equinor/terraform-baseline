@@ -111,6 +111,7 @@ A maintainer should:
 - Have complete understanding of Terraform.
 - Have complete understanding of Terraform Baseline best practices.
 - Communicate and share with other maintainers.
+- Participate in [monthly meetups](internal/meetups.md) with other maintainers.
 
 ### 👮‍♂️ Administrators
 
