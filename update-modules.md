@@ -62,8 +62,8 @@ What to update:
 
 ---
 
-- [ ] [equinor/automation/azurerm](https://registry.terraform.io/modules/equinor/automation/azurerm/latest)
-- [ ] [equinor/service-bus/azurerm](https://registry.terraform.io/modules/equinor/service-bus/azurerm/latest)
+- [x] [equinor/automation/azurerm](https://registry.terraform.io/modules/equinor/automation/azurerm/latest)
+- [x] [equinor/service-bus/azurerm](https://registry.terraform.io/modules/equinor/service-bus/azurerm/latest)
 - [ ] [equinor/event-grid/azurerm](https://registry.terraform.io/modules/equinor/event-grid/azurerm/latest)
 
 ---
