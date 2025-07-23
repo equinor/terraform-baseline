@@ -8,6 +8,9 @@ Open an issue in [this repository](https://github.com/equinor/terraform-baseline
 
 ## 📝 Making changes
 
+> [!NOTE]
+> Before making changes to a Terraform Baseline module, you should familiarize yourself with the [Module Development documentation](https://developer.hashicorp.com/terraform/language/modules/develop).
+
 1. Create a new branch. For external contributors, create a fork.
 1. Commit your changes. Your commit message should follow the [Conventional Commits specificiation](#-commit-messages)
 1. Create a pull request (PR).
