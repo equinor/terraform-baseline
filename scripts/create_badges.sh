@@ -1,19 +1,17 @@
 #! /bin/bash
 #
-# In a logical order:
-# 1. Module status
-#     - GitHub release tag
-#     - Terraform module downloads
-# 2. Community and maintenance
-#     - Contributors
-#     - Issues
-#     - Pull requests
-# 3. License
+# Create badges for Terraform module README.
+#
+# Creates badges in a logical order:
+#   1. Latest release
+#   2. Downloads
+#   3. Community and maintenance (contributors, issues and pull requests)
+#   4. License
 
 set -eu
 
-module_name=$1
-provider=${2:-"azurerm"}
+module_name="$1"
+provider="${2:-"azurerm"}"
 
 namespace="equinor"
 repo="$namespace/terraform-${provider}-${module_name}"
