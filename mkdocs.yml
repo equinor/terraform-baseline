@@ -9,7 +9,7 @@ theme:
     logo: fontawesome/solid/cube # Set icon to cube to represent the baseline as a "building block"
     repo: fontawesome/brands/github
   features:
-    - navigation.tabs # Enables navigational tabs at top of page.
+    - navigation.sections # Enables section groups in the sidebar.
     - navigation.instant # Make MkDocs behave like a Single Page Application (SPA).
     - navigation.top # Enables "back-to-top" button.
     - navigation.footer # Enables "previous" and "next" navigation buttons in footer
@@ -49,4 +49,6 @@ nav:
       - best-practices/variables-and-outputs.md
       - best-practices/meta-arguments.md
       - best-practices/testing.md
-  - Module library: https://registry.terraform.io/search/modules?namespace=equinor
+  - Modules:
+      - Terraform Registry: https://registry.terraform.io/search/modules?namespace=equinor
+      - GitHub: https://github.com/equinor/?q=topic:terraform-baseline+topic:terraform-module
