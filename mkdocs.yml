@@ -49,6 +49,7 @@ nav:
       - best-practices/variables-and-outputs.md
       - best-practices/meta-arguments.md
       - best-practices/testing.md
+      - best-practices/ai-skills.md
   - Modules:
       - Terraform Registry: https://registry.terraform.io/search/modules?namespace=equinor
       - GitHub: https://github.com/equinor/?q=topic:terraform-baseline+topic:terraform-module
